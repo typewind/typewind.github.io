@@ -25,6 +25,7 @@
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"> {%- include '_partials/header.swig' %} </div>
     </header>
+    <script type="text/javascript" src="/js/src/echarts.common.min.js"></script>
 
     <main id="main" class="main">
       <div class="main-inner">
