@@ -6,7 +6,7 @@
 favicon: /favicon.ico
 
 # Set default keywords (Use a comma to separate)
-keywords: "Hexo, NexT"
+keywords: "python"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
@@ -17,7 +17,7 @@ rss:
 #since: 2015
 
 # icon between year and author @Footer
-authoricon: heart
+authoricon: dot
 
 # Footer `powered-by` and `theme-info` copyright
 copyright: true
@@ -49,8 +49,9 @@ menu:
   home: /
   #categories: /categories/
   #about: /about/
-  archives: /archives/
-  tags: /tags/
+  about: /about
+  archives: /archives
+  tags: /tags
   #sitemap: /sitemap.xml
   #commonweal: /404/
 
@@ -77,9 +78,9 @@ menu_icons:
 # ---------------------------------------------------------------
 
 # Schemes
-scheme: Muse
+#scheme: Muse
 #scheme: Mist
-#scheme: Pisces
+scheme: Pisces
 #scheme: Gemini
 
 
@@ -106,15 +107,16 @@ social_icons:
   # KeyMapsToSocialItemKey: NameOfTheIconFromFontAwesome
   GitHub: github
   E-Mail: envelope
-  Google: google
+  Linkedin: linkedin-square
+  #Google: google
   Twitter: twitter
-  FB Page: facebook
-  VK Group: vk
-  Skype: skype
-  YouTube: youtube
-  Instagram: instagram
-  StackOverflow: stack-overflow
-  Weibo: weibo
+  #FB Page: facebook
+  #VK Group: vk
+  #Skype: skype
+  #YouTube: youtube
+  #Instagram: instagram
+  #StackOverflow: stack-overflow
+  #Weibo: weibo
 
 # Blog rolls
 #links_title: Links
@@ -154,8 +156,8 @@ sidebar:
   #  - always  expand for all pages automatically
   #  - hide    expand only when click on the sidebar toggle icon.
   #  - remove  Totally remove sidebar including sidebar toggle.
-  display: post
-  #display: always
+  #display: post
+  display: always
   #display: hide
   #display: remove
 
@@ -164,10 +166,10 @@ sidebar:
   offset_float: 12
 
   # Back to top in sidebar
-  b2t: false
+  b2t: True
 
   # Scroll percent label in b2t button
-  scrollpercent: false
+  scrollpercent: True
   
   # Enable sidebar on narrow view
   onmobile: false
@@ -249,7 +251,7 @@ custom_logo:
 # Available value:
 #    normal | night | night eighties | night blue | night bright
 # https://github.com/chriskempson/tomorrow-theme
-highlight_theme: normal
+highlight_theme: night blue
 
 
 # ---------------------------------------------------------------
@@ -323,8 +325,8 @@ han: false
 
 # Disqus
 disqus:
-  enable: false
-  shortname:
+  enable: True
+  shortname: typewind
   count: true
 
 # Hypercomments
@@ -381,7 +383,7 @@ changyan:
 # user_id must NOT be null when admin_enable is true!
 # you can visit http://dev.duoshuo.com get duoshuo user id.
 duoshuo_info:
-  ua_enable: true
+  ua_enable: false
   admin_enable: false
   user_id: 0
   #admin_nickname: Author
