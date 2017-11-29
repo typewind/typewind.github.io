@@ -112,7 +112,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"always","offset":12,"offset_float":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"posts","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: true,
@@ -356,12 +356,12 @@
       
         
           <p><a href="https://github.com/zhoulvjun/hexo-tag-echarts" target="_blank" rel="noopener">Echart</a> is an amazing D3-based visualization plug-in for the Hexo. Here is a sample rendered by Echart.</p>
-<div id="echarts8543" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts4067" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="http://echarts.baidu.com/dist/echarts.common.min.js"></script>
 
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts8543'));
+        var myChart = echarts.init(document.getElementById('echarts4067'));
         // 指定图表的配置项和数据
         var option = {
     tooltip : {
@@ -1831,17 +1831,6 @@
                 </a>
               </span>
             
-              <span class="links-of-author-item">
-                <a href="https://www.behance.net/typewind" target="_blank" title="Behance">
-                  
-                    <i class="fa fa-fw fa-behance-square"></i>
-                  
-                    
-                      Behance
-                    
-                </a>
-              </span>
-            
           
         </div>
 
@@ -1859,11 +1848,6 @@
       
 
       
-        <div class="back-to-top">
-          <i class="fa fa-arrow-up"></i>
-          
-        </div>
-      
 
     </div>
   </aside>
@@ -1875,7 +1859,13 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+Total visitors:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+<div class="copyright" >
   
   &copy; 
   <span itemprop="copyrightYear">2017</span>
@@ -1904,6 +1894,11 @@
       </div>
     </footer>
 
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
     
 
   </div>
