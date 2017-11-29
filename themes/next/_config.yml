@@ -79,8 +79,8 @@ menu_icons:
 
 # Schemes
 #scheme: Muse
-#scheme: Mist
-scheme: Pisces
+scheme: Mist
+#scheme: Pisces
 #scheme: Gemini
 
 
@@ -105,11 +105,10 @@ social_icons:
   transition: false
   # Icon Mappings.
   # KeyMapsToSocialItemKey: NameOfTheIconFromFontAwesome
-  GitHub: github
-  E-Mail: envelope
+  GitHub: github-square
+  E-mail: envelope 
   Linkedin: linkedin-square
-  #Google: google
-  Twitter: twitter
+  Behance: behance-square
   #FB Page: facebook
   #VK Group: vk
   #Skype: skype
@@ -157,7 +156,7 @@ sidebar:
   #  - hide    expand only when click on the sidebar toggle icon.
   #  - remove  Totally remove sidebar including sidebar toggle.
   #display: post
-  display: always
+  display: posts
   #display: hide
   #display: remove
 
@@ -166,10 +165,10 @@ sidebar:
   offset_float: 12
 
   # Back to top in sidebar
-  b2t: True
+  b2t: False
 
   # Scroll percent label in b2t button
-  scrollpercent: True
+  scrollpercent: False
   
   # Enable sidebar on narrow view
   onmobile: false

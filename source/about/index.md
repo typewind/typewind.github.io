@@ -4,8 +4,9 @@ date: 2017-05-16 23:45:33
 ---
 
 # Summary
- - Strategy Consultant for UK Infrastructure (英国基建战略忽悠师)
+ - Novice Data Scientist
  - Former Indie Game Designer
+ - Former Football Journalist 
  - 20/04/1992, Chinese, Female, still young
 
 ---
@@ -15,9 +16,9 @@ date: 2017-05-16 23:45:33
 - Preferred Language:
 Python, C/C++, HTML5+CSS3+JavaScript, SQL
 - Preferred Libraries and ToolKits:
-Tensorflow, Keras, Scikit-Learn, Pandas, Unity3D, Phaser
+Plotly, Tensorflow, Keras, Scikit-Learn, Pandas, Unity3D, Phaser
 - Areas of Expertise
-Machine Learning, Data Mining, Data Analysis, Computer Graphics, Game Design, Game Development
+Machine Learning, Data Mining, Visualization, Computer Graphics, Game Design, Game Development
 
 ## Design
 - Preferred software:
@@ -38,7 +39,7 @@ UI/UX design, Digital Media Processing
 
 ## BTW:  
 - Mean Machine is a nickname given by my friend Valentin. But I'm not mean and I wanna live like a human being.
-- Typewind is a neta of Type-Moon, my favorite visual novel game company with Fate / Kara no Kyokai / series.
+- Typewind is a neta of Type-Moon, which is my favorite visual novel game company with Fate / Kara no Kyokai / series.
 - True name: Shuyao Chen (陈舒瑶). Thank you for reading to here. Nice to meet you! 
 
 ## Bonus

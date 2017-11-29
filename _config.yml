@@ -4,8 +4,8 @@
 
 # Site
 title: Mean Machine
-subtitle: The Night is Short, Walk on Girl!
-description: Data science, machine learning, football and ACG
+subtitle: Night is Short, Walk on Girl!
+description: Data science, Machine Learning, Football and ACG
 author: Typewind
 language: en
 timezone: 
@@ -26,6 +26,13 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
+
+  # Social links
+social:
+  GitHub: https://github.com/typewind
+  Twitter: https://twitter.com/ShuyaoChen
+  Linkedin: https://www.linkedin.com/in/shuyaochen/
+
 
 # Writing
 new_post_name: ::year-:month-:day-:title.md # File name of new posts
