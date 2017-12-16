@@ -356,12 +356,12 @@
       
         
           <p><a href="https://github.com/zhoulvjun/hexo-tag-echarts" target="_blank" rel="noopener">Echart</a> is an amazing D3-based visualization plug-in for the Hexo. Here is a sample rendered by Echart.</p>
-<div id="echarts6341" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts5711" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="http://echarts.baidu.com/dist/echarts.common.min.js"></script>
 
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts6341'));
+        var myChart = echarts.init(document.getElementById('echarts5711'));
         // 指定图表的配置项和数据
         var option = {
     tooltip : {
@@ -1840,7 +1840,28 @@
         
         
 
-        
+        <div id="player1" class="aplayer"></div>
+<script src="/js/src/APlayer.min.js"></script>
+<script type="text/javascript">
+var ap = new APlayer({
+    element: document.getElementById('player1'),                       // Optional, player element
+    narrow: false,                                                     // Optional, narrow style
+    autoplay: true,                                                    // Optional, autoplay song(s), not supported by mobile browsers
+    showlrc: 0,                                                        // Optional, show lrc, can be 0, 1, 2, see: ###With lrc
+    mutex: true,                                                       // Optional, pause other players when this player playing
+    theme: '#e6d0b2',                                                  // Optional, theme color, default: #b7daff
+    mode: 'random',                                                    // Optional, play mode, can be `random` `single` `circulation`(loop) `order`(no loop), default: `circulation`
+    preload: 'metadata',                                               // Optional, the way to load music, can be 'none' 'metadata' 'auto', default: 'auto'
+    listmaxheight: '513px',                                             // Optional, max height of play list
+    music: {                                                           // Required, music info, see: ###With playlist
+        title: 'Preparation',                                          // Required, music title
+        author: 'Hans Zimmer/Richard Harvey',                          // Required, music author
+        url: 'http://7xifn9.com1.z0.glb.clouddn.com/Preparation.mp3',  // Required, music url
+        pic: 'http://7xifn9.com1.z0.glb.clouddn.com/Preparation.jpg',  // Optional, music picture
+        lrc: '[00:00.00]lrc here\n[00:01.00]aplayer'                   // Optional, lrc, see: ###With lrc
+    }
+});
+</script>
 
 
       </section>
