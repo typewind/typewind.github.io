@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Data Mining,Kaggle,Scikit-learn," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="IntroductionKaggle is a brave new world for me. Sometimes I really miss the programming/project competitions I played in my first Uni. I should know this websit">
+<meta name="keywords" content="Data Mining,Kaggle,Scikit-learn">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Notes of Data Science London + Scikit-learn">
+<meta property="og:url" content="https://typewind.github.io/2017/07/05/k-london-notes/index.html">
+<meta property="og:site_name" content="Mean Machine">
+<meta property="og:description" content="IntroductionKaggle is a brave new world for me. Sometimes I really miss the programming/project competitions I played in my first Uni. I should know this website earlier. Anyway, it’s time to start a">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://i.imgur.com/GZbkqnb.png">
+<meta property="og:image" content="http://i.imgur.com/pEYvobs.png">
+<meta property="og:image" content="http://i.imgur.com/TVXeBsH.png">
+<meta property="og:image" content="http://i.imgur.com/S7IoCnY.png">
+<meta property="og:image" content="http://i.imgur.com/BrWsVy0.png">
+<meta property="og:image" content="http://i.imgur.com/6XhGvCq.png">
+<meta property="og:image" content="http://i.imgur.com/bv6ODpU.png">
+<meta property="og:image" content="http://i.imgur.com/lLGY2ik.png">
+<meta property="og:image" content="http://i.imgur.com/AvFaCSr.png">
+<meta property="og:updated_time" content="2017-07-10T22:27:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Notes of Data Science London + Scikit-learn">
+<meta name="twitter:description" content="IntroductionKaggle is a brave new world for me. Sometimes I really miss the programming/project competitions I played in my first Uni. I should know this website earlier. Anyway, it’s time to start a">
+<meta name="twitter:image" content="http://i.imgur.com/GZbkqnb.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"posts","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://typewind.github.io/2017/07/05/k-london-notes/"/>
+
+
+
+
+
+  <title>Notes of Data Science London + Scikit-learn | Mean Machine</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mean Machine</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Night is Short, Walk on Girl!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+    <script type="text/javascript" src="/js/src/echarts.common.min.js"></script>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2017/07/05/k-london-notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Typewind">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mean Machine">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Notes of Data Science London + Scikit-learn</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-05T18:54:30+01:00">
+                2017-07-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/07/05/k-london-notes/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/07/05/k-london-notes/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p><a href="https://www.kaggle.com/" target="_blank" rel="noopener">Kaggle</a> is a brave new world for me. Sometimes I really miss the programming/project competitions I played in my first Uni. I should know this website earlier. Anyway, it’s time to start a new journey.</p>
+<p>As a “hello world”-level competition, <a href="https://www.kaggle.com/c/data-science-london-scikit-learn" target="_blank" rel="noopener">Data Science London + Scikit-learn</a> is binary classification task, which helps me to practice the PCA &amp; SVM, as well as the GMM and QQ-plot. Here are my notes from this simple competition.</p>
+<p>Final result:</p>
+<ul>
+<li>GMM+Random Forest: 0.99218</li>
+<li>Simple SVC: 0.93443 (n_components=12)</li>
+<li>DNN:0.85544</li>
+</ul>
+<p>Source Code: <a href="https://github.com/typewind/Kaggle/tree/master/Data_Science_London_Scikit_learn" target="_blank" rel="noopener">here</a></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><h1 id="Data-Observation-and-Analysis"><a href="#Data-Observation-and-Analysis" class="headerlink" title="Data Observation and Analysis"></a>Data Observation and Analysis</h1><h2 id="Basic-Structure"><a href="#Basic-Structure" class="headerlink" title="Basic Structure"></a>Basic Structure</h2><p>There are <a href="https://www.kaggle.com/c/data-science-london-scikit-learn/data" target="_blank" rel="noopener">3 data files</a> for this competition:</p>
+<ul>
+<li><a href="https://www.kaggle.com/c/data-science-london-scikit-learn/download/trainLabels.csv" target="_blank" rel="noopener">trainLabels.csv</a> </li>
+<li><a href="https://www.kaggle.com/c/data-science-london-scikit-learn/download/train.csv" target="_blank" rel="noopener">train.csv</a></li>
+<li><a href="https://www.kaggle.com/c/data-science-london-scikit-learn/download/test.csv" target="_blank" rel="noopener">test.csv</a></li>
+</ul>
+<p>First, load all of them by pandas and transform them to the matrix and output the shape information by</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">path=<span class="string">"/Users/typewind/kaggle/Data_Science_London_Scikit_learn/"</span></span><br><span class="line">X_train=pd.read_csv(path+<span class="string">"train.csv"</span>,header=<span class="keyword">None</span>).as_matrix()</span><br><span class="line">Y_train=pd.read_csv(path+<span class="string">"trainLabels.csv"</span>,header=<span class="keyword">None</span>)[<span class="number">0</span>].as_matrix()</span><br><span class="line">X_test=pd.read_csv(path+<span class="string">"test.csv"</span>, header=<span class="keyword">None</span>).as_matrix()</span><br><span class="line">print(<span class="string">"Shape of the train data:"</span>, X_train.shape)</span><br><span class="line">print(<span class="string">"Shape of the test data:"</span>, X_test.shape)</span><br><span class="line">print(<span class="string">"Shape of the train label:"</span>, Y_train.shape)</span><br><span class="line">print(<span class="string">"There are"</span>, sum(Y_train), <span class="string">"ones and"</span>, len(Y_train)-sum(Y_train), <span class="string">"zeros in the trainLabels"</span>)</span><br></pre></td></tr></table></figure>
+<p>The output is:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Shape of the train data: (1000, 40)</span><br><span class="line">Shape of the test data: (9000, 40)</span><br><span class="line">Shape of the train label: (1000,)</span><br><span class="line">There are 510 ones and 490 zeros in the trainLabels</span><br></pre></td></tr></table></figure></p>
+<h2 id="Distribution"><a href="#Distribution" class="headerlink" title="Distribution"></a>Distribution</h2><p>There is no label for each feature. After opening the train.csv I feel a little bit panic:<br><img src="http://i.imgur.com/GZbkqnb.png" alt="panic"><br>The best way to understand the meaning of the data is to visualize it. So I draw the scatter plot for the first feature.<br><img src="http://i.imgur.com/pEYvobs.png" alt="scatter"><br>It is obvious that lots of values gathered around the middle value, or 0. And few values are scatted away from the middle. The largest y-axis distance between the point to the 0 is 3. Looks like a typical <strong>Gaussian/norm Distribution</strong>.   </p>
+<p>To proof it, we can use the probplot(or QQ-plot) to compare the similarity between the first feature and the norm distribution by 3 lines:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> probplot</span><br><span class="line">probplot(X_train[:,<span class="number">0</span>], dist=<span class="string">'norm'</span>, plot=plt)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p>
+<p>Then we get the QQ-plot:<br><img src="http://i.imgur.com/TVXeBsH.png" alt="qqplot"><br>Boom! Nearly best fit! Q.E.D.<br>Follow the cheat sheet as shown below, the K-Means and Spectral Clustering GMM are the solutions.<br><img src="http://i.imgur.com/S7IoCnY.png" alt="route in the cheat sheet"><br>The data follows the Gaussian distribution so GMM should be the best choice. K-means is easy to understand and implement. However, after I decompose the data from 40D into 2D and put them into a scatter plot:<br><img src="http://i.imgur.com/BrWsVy0.png" alt="Imgur"><br>The data points of 2 classes are overlapped. Farewell, K-means.</p>
+<h2 id="Decomposition"><a href="#Decomposition" class="headerlink" title="Decomposition"></a>Decomposition</h2><p><a href="https://www.kaggle.com/c/data-science-london-scikit-learn/discussion/4902" target="_blank" rel="noopener">There is a discussion</a> mentioned that “a bunch of tutorial set n_components=12”. Therefore, some features are useless. The pca’s explained variance ratio can find these useless feature.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.decomposition.pca <span class="keyword">import</span> PCA</span><br><span class="line">pca=PCA(whiten=<span class="keyword">True</span>)</span><br><span class="line">X_train_pca=pca.fit_transform(X_train)</span><br><span class="line">print(pca.explained_variance_ratio_)</span><br></pre></td></tr></table></figure></p>
+<p>The ratios of 40 features are:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[  2.50544034e-01   2.05504804e-01   8.02647324e-02   5.03365785e-02</span><br><span class="line">   4.89595071e-02   4.48990382e-02   4.17078061e-02   3.12793704e-02</span><br><span class="line">   2.30982735e-02   2.10016623e-02   1.61972964e-02   1.26992466e-02</span><br><span class="line">   8.85167569e-03   8.46121664e-03   8.27947080e-03   8.17822699e-03</span><br><span class="line">   8.08196351e-03   7.88340260e-03   7.70056323e-03   7.64196265e-03</span><br><span class="line">   7.42925674e-03   7.35225814e-03   7.11202223e-03   7.06576286e-03</span><br><span class="line">   6.91462620e-03   6.84684491e-03   6.63475181e-03   6.46844401e-03</span><br><span class="line">   6.32196349e-03   6.25702627e-03   6.14168054e-03   5.99118663e-03</span><br><span class="line">   5.92316288e-03   5.81629495e-03   5.65989183e-03   5.34314317e-03</span><br><span class="line">   5.15085198e-03   4.94110984e-32   9.84561549e-33   8.28162885e-33]</span><br></pre></td></tr></table></figure></p>
+<p>The bar chart of the ratios as shown below:<br><img src="http://i.imgur.com/6XhGvCq.png" alt="Imgur"></p>
+<p>From these ratios we can find:</p>
+<ol>
+<li>The last 3 features are totally useless. Other features has the ratio like 1e-01, 1e-02 or 1e-03, but they have 1e-33, which is too small.</li>
+<li>The top 12 ratios are larger than 1e-02. That’s why lots of submissions set n_components=12.</li>
+</ol>
+<h2 id="Solutions-and-Scores"><a href="#Solutions-and-Scores" class="headerlink" title="Solutions and Scores"></a>Solutions and Scores</h2><h3 id="GMM-Gaussian-Mixture-Model-0-99218"><a href="#GMM-Gaussian-Mixture-Model-0-99218" class="headerlink" title="GMM (Gaussian Mixture Model) ,0.99218"></a>GMM (Gaussian Mixture Model) ,0.99218</h3><p>Actually I tried the following 2 methods (SVC&amp;DNN) first, until I found <a href="https://www.kaggle.com/c/data-science-london-scikit-learn/discussion/8104" target="_blank" rel="noopener">this discussion</a>. </p>
+<h4 id="Basic-Idea"><a href="#Basic-Idea" class="headerlink" title="Basic Idea"></a>Basic Idea</h4><p>In this discussion, Peter Williams guess the data is a mixture of Gaussian, then he use the <strong>inverse method and get the original parameters of GMM</strong>. Genius.</p>
+<p>I should find this discussion first..I only guess the data follows the Gaussian Distribution, but I didn’t think it as further as him. </p>
+<p>In this discussion, Luan Junyi also provided a <a href="http://nbviewer.jupyter.org/gist/luanjunyi/6632d4c0f92bc30750f4" target="_blank" rel="noopener">iPython Notebook of Peter’s method</a>, which achieves 99% accuracy. He use the <a href="https://docs.scipy.org/doc/scipy-0.19.0/reference/generated/scipy.stats.gaussian_kde.html" target="_blank" rel="noopener">Gaussian KDE plot</a> to show the distribution, which is very clear as well. </p>
+<h4 id="Differences-between-GMM-and-GaussianMixture"><a href="#Differences-between-GMM-and-GaussianMixture" class="headerlink" title="Differences between GMM and GaussianMixture"></a>Differences between GMM and GaussianMixture</h4><p>That iPython Notebook wrote 3 years ago, the Sklearn updated a lot after that as well. If we run the sample code from that notebook we will receive this waring:</p>
+<blockquote>
+<p>DeprecationWarning: Class GMM is deprecated; The class GMM is deprecated in 0.18 and will be  removed in 0.20. Use class GaussianMixture instead.</p>
+</blockquote>
+<p>There are several differences between their definition. The relevant changes are:</p>
+<ul>
+<li>The default <code>covariance_type</code> of GMM is <code>&#39;diag&#39;</code>. It has been changed to <code>&#39;full&#39;</code> in GaussianMixture.</li>
+<li>The name of covariance variable has been changed. It is <code>min_covar:float=1e-3</code>In GMM and <code>reg_covar=1e-6</code> in GaussianMixture<br>Two different definitions as shown below:<br><img src="http://i.imgur.com/bv6ODpU.png" alt="Imgur"></li>
+</ul>
+<h4 id="GridSearchCV"><a href="#GridSearchCV" class="headerlink" title="GridSearchCV"></a>GridSearchCV</h4><p>GridSearch is used to find the best parameter of the classifier (Brute Force). For example:<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> GridSearchCV</span><br><span class="line">grid_search_rf = GridSearchCV(rf, param_grid=dict(), verbose=<span class="number">3</span>, scoring=<span class="string">'accuracy'</span>, cv=<span class="number">10</span>).fit(x_train, y_train)</span><br><span class="line">rf_best = grid_search_rf.best_estimator_</span><br><span class="line">print(rf_best)</span><br></pre></td></tr></table></figure></p>
+<p>The output is:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">RandomForestClassifier(bootstrap=<span class="keyword">True</span>, class_weight=<span class="keyword">None</span>, criterion=<span class="string">'gini'</span>,</span><br><span class="line">            max_depth=<span class="keyword">None</span>, max_features=<span class="string">'auto'</span>, max_leaf_nodes=<span class="keyword">None</span>,</span><br><span class="line">            min_impurity_split=<span class="number">1e-07</span>, min_samples_leaf=<span class="number">1</span>,</span><br><span class="line">            min_samples_split=<span class="number">2</span>, min_weight_fraction_leaf=<span class="number">0.0</span>,</span><br><span class="line">            n_estimators=<span class="number">10</span>, n_jobs=<span class="number">1</span>, oob_score=<span class="keyword">False</span>, random_state=<span class="keyword">None</span>,</span><br><span class="line">            verbose=<span class="number">0</span>, warm_start=<span class="keyword">False</span>)</span><br></pre></td></tr></table></figure></p>
+<p>The <code>rf_best</code> can be used as a classifier directly, like <code>rf_best.fit(x_train, y_train)</code>.</p>
+<p>It will take several seconds to run the GridSearchCV (Brute Force XD)</p>
+<h3 id="Simple-Support-Vector-Classification-SVC-0-93443"><a href="#Simple-Support-Vector-Classification-SVC-0-93443" class="headerlink" title="Simple Support Vector Classification (SVC), 0.93443"></a>Simple Support Vector Classification (SVC), 0.93443</h3><p>First I use the sklearn.svm.SVC directly and get the <code>0.91292</code>, which is same as the published SVC benchmark of this dataset. The code as shown below.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Simple_SVM</span><span class="params">()</span>:</span></span><br><span class="line">    svm=SVC()</span><br><span class="line">    svm.fit(X_train,Y_train)</span><br><span class="line">    pred=svm.predict(X_test)</span><br></pre></td></tr></table></figure></p>
+<p>After decomposing the feature vector from 40D to 12D, I get the <code>0.93443</code>. I fit the PCA by both training data and the test data.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pca12=PCA(n_components=<span class="number">12</span>,whiten=<span class="keyword">True</span>)</span><br><span class="line">pca12.fit(np.r_[X_train,X_test])</span><br><span class="line">X_train=pca12.transform(X_train)</span><br><span class="line">X_test=pca12.transform(X_test)</span><br></pre></td></tr></table></figure></p>
+<p>But 37D can only get <code>0.86140</code>. The plot blowing shows the scores of other dimensions:<br><img src="http://i.imgur.com/lLGY2ik.png" alt="Imgur"></p>
+<h3 id="Dummy-2-layer-Neural-Network-0-85544"><a href="#Dummy-2-layer-Neural-Network-0-85544" class="headerlink" title="Dummy 2-layer Neural Network, 0.85544"></a>Dummy 2-layer Neural Network, 0.85544</h3><p>Implemented by the Keras.<br>It’s dummy because I even don’t need to analysis the data. Just throw them into the network then see what happens. Neural Network is always easy to use but hard to explain. </p>
+<p>1st-layer(FC layer): 40 units, activation function = relu, input_dim=40<br>2nd-layer: 1 unit, activation function=sigmoid<br>Score: 0.85544</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ol>
+<li><a href="https://www.kaggle.com/c/data-science-london-scikit-learn/visualization/1091" target="_blank" rel="noopener">Tutorials - Data Science London + Scikit-learn</a> by William Cukierski. Very good introduction of common functions (PCA, SVM, cross-validation, etc., in sklearn). I love this cheat sheet from it. Just Perfect. I should print it out or set it as a desktop XD.<br><img src="http://i.imgur.com/AvFaCSr.png" alt="Without route"></li>
+<li><a href="http://nbviewer.jupyter.org/gist/luanjunyi/6632d4c0f92bc30750f4" target="_blank" rel="noopener">Achieve 99% by GMM</a></li>
+<li><a href="http://www.cnblogs.com/mindpuzzle/archive/2013/04/24/3036447.html" target="_blank" rel="noopener">Gaussian Mixture Model</a></li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Data-Mining/" rel="tag"># Data Mining</a>
+          
+            <a href="/tags/Kaggle/" rel="tag"># Kaggle</a>
+          
+            <a href="/tags/Scikit-learn/" rel="tag"># Scikit-learn</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/02/keras-siamese-bug/" rel="next" title="Bugs in mnist_siamese_graph.py of Keras example">
+                <i class="fa fa-chevron-left"></i> Bugs in mnist_siamese_graph.py of Keras example
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/06/re-id-progress/" rel="prev" title="Re-ID Project Progress">
+                Re-ID Project Progress <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Typewind" />
+          <p class="site-author-name" itemprop="name">Typewind</p>
+           
+              <p class="site-description motion-element" itemprop="description">Computer Science, Football and ACG</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/typewind" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github-square"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/ShuyaoChen" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      Twitter
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/shuyaochen/" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin-square"></i>
+                  
+                    
+                      Linkedin
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        <div id="player1" class="aplayer"></div>
+<script src="/js/src/APlayer.min.js"></script>
+<script type="text/javascript">
+var ap = new APlayer({
+    element: document.getElementById('player1'),                       // Optional, player element
+    narrow: false,                                                     // Optional, narrow style
+    autoplay: false,                                                    // Optional, autoplay song(s), not supported by mobile browsers
+    showlrc: 0,                                                        // Optional, show lrc, can be 0, 1, 2, see: ###With lrc
+    mutex: true,                                                       // Optional, pause other players when this player playing
+    theme: '#e6d0b2',                                                  // Optional, theme color, default: #b7daff
+    mode: 'random',                                                    // Optional, play mode, can be `random` `single` `circulation`(loop) `order`(no loop), default: `circulation`
+    preload: 'metadata',                                               // Optional, the way to load music, can be 'none' 'metadata' 'auto', default: 'auto'
+    listmaxheight: '513px',                                             // Optional, max height of play list
+    music: [  
+    {
+	    	title: 'ネシ巻き師と太虚鳥.mp3',
+	    	author: 'lasah',
+	    	url: 'https://github.com/typewind/typewind.github.io/blob/music/lasah%20-%20%E3%83%8D%E3%82%B7%E3%82%99%E5%B7%BB%E3%81%8D%E5%B8%AB%E3%81%A8%E5%A4%AA%E8%99%9A%E9%B3%A5.mp3',
+
+	    },
+	    {
+	    	title: 'Secret',
+	    	author: '茶太',
+	    	url: 'http://ou68gv0zg.bkt.clouddn.com/%E8%8C%B6%E5%A4%AA%20-%20Secret.mp3',
+
+	    }]
+});
+</script>
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">1.1.</span> <span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Observation-and-Analysis"><span class="nav-number">2.</span> <span class="nav-text">Data Observation and Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-Structure"><span class="nav-number">2.1.</span> <span class="nav-text">Basic Structure</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Distribution"><span class="nav-number">2.2.</span> <span class="nav-text">Distribution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Decomposition"><span class="nav-number">2.3.</span> <span class="nav-text">Decomposition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solutions-and-Scores"><span class="nav-number">2.4.</span> <span class="nav-text">Solutions and Scores</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GMM-Gaussian-Mixture-Model-0-99218"><span class="nav-number">2.4.1.</span> <span class="nav-text">GMM (Gaussian Mixture Model) ,0.99218</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Basic-Idea"><span class="nav-number">2.4.1.1.</span> <span class="nav-text">Basic Idea</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Differences-between-GMM-and-GaussianMixture"><span class="nav-number">2.4.1.2.</span> <span class="nav-text">Differences between GMM and GaussianMixture</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GridSearchCV"><span class="nav-number">2.4.1.3.</span> <span class="nav-text">GridSearchCV</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Simple-Support-Vector-Classification-SVC-0-93443"><span class="nav-number">2.4.2.</span> <span class="nav-text">Simple Support Vector Classification (SVC), 0.93443</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dummy-2-layer-Neural-Network-0-85544"><span class="nav-number">2.4.3.</span> <span class="nav-text">Dummy 2-layer Neural Network, 0.85544</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+Total visitors:<span id="busuanzi_value_site_pv"></span>
+</span>
+</div>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-dot"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Typewind</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://typewind.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://typewind.github.io/2017/07/05/k-london-notes/';
+          this.page.identifier = '2017/07/05/k-london-notes/';
+          this.page.title = 'Notes of Data Science London + Scikit-learn';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://typewind.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

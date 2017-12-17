@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Applied Algorithms,Recommender System," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="Our video presentation of Recommender Systems - Beyond Matrix Completion Video: Shuyao ChenAudio: Aidon BlongScript: Aidon Blong, Shuyao Chen, Felix Udanyi">
+<meta name="keywords" content="Applied Algorithms,Recommender System">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Notes of &quot;Recommender Systems - Beyond Matrix Completion&quot;">
+<meta property="og:url" content="https://typewind.github.io/2017/04/05/rsbmc-notes/index.html">
+<meta property="og:site_name" content="Mean Machine">
+<meta property="og:description" content="Our video presentation of Recommender Systems - Beyond Matrix Completion Video: Shuyao ChenAudio: Aidon BlongScript: Aidon Blong, Shuyao Chen, Felix Udanyi">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://i.imgur.com/0pUnYp4.png">
+<meta property="og:image" content="http://i.imgur.com/EpysEZ8.png">
+<meta property="og:updated_time" content="2017-07-03T16:58:57.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Notes of &quot;Recommender Systems - Beyond Matrix Completion&quot;">
+<meta name="twitter:description" content="Our video presentation of Recommender Systems - Beyond Matrix Completion Video: Shuyao ChenAudio: Aidon BlongScript: Aidon Blong, Shuyao Chen, Felix Udanyi">
+<meta name="twitter:image" content="http://i.imgur.com/0pUnYp4.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"posts","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://typewind.github.io/2017/04/05/rsbmc-notes/"/>
+
+
+
+
+
+  <title>Notes of "Recommender Systems - Beyond Matrix Completion" | Mean Machine</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mean Machine</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Night is Short, Walk on Girl!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+    <script type="text/javascript" src="/js/src/echarts.common.min.js"></script>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2017/04/05/rsbmc-notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Typewind">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mean Machine">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Notes of "Recommender Systems - Beyond Matrix Completion"</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-05T14:00:30+01:00">
+                2017-04-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/04/05/rsbmc-notes/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/04/05/rsbmc-notes/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><iframe width="560" height="315" src="https://www.youtube.com/embed/bwwwEfORCtw" frameborder="0" allowfullscreen></iframe><br>Our video presentation of Recommender Systems - Beyond Matrix Completion</p>
+<p>Video: Shuyao Chen<br>Audio: Aidon Blong<br>Script: Aidon Blong, Shuyao Chen, Felix Udanyi<br><a id="more"></a></p>
+<h1 id="A-Brief-History"><a href="#A-Brief-History" class="headerlink" title="A Brief History"></a>A Brief History</h1><h2 id="Related-fields"><a href="#Related-fields" class="headerlink" title="Related fields"></a>Related fields</h2><ul>
+<li>Information System</li>
+<li>Information Retrieval</li>
+<li>Machine Learning</li>
+<li>Human-Computer Interaction</li>
+<li>Marketing</li>
+<li>Physics<br>Common point: recommendations must be personalized or adapted to user’s situation<!--more-->
+<h2 id="Informaton-Filtering-IF"><a href="#Informaton-Filtering-IF" class="headerlink" title="Informaton Filtering (IF)"></a>Informaton Filtering (IF)</h2>In some area, IF=RS (eg. news recommendation)<h3 id="From-1960s"><a href="#From-1960s" class="headerlink" title="From 1960s"></a>From 1960s</h3></li>
+</ul>
+<ol>
+<li>Explicit keywords.</li>
+<li>Content-based filtering: recommend an item to a user based upon a description of the item and a profile of the user’s interests[1]. Use the weighted term vectors(TF-IDF vectors)</li>
+<li>) or Latent semantic indexing(LSI) </li>
+</ol>
+<h3 id="1982-ACM-president’s-letter"><a href="#1982-ACM-president’s-letter" class="headerlink" title="1982: ACM president’s letter"></a>1982: ACM president’s letter</h3><p>To fight againt the junk mail,<a href="http://dl.acm.org/citation.cfm?id=358454" target="_blank" rel="noopener">Denning, P.J. ACM president’s letter: Electronic junk. Commun. ACM 25, 3 (Mar. 1982), 163–165.</a> offered 2 requirements:</p>
+<ol>
+<li>There must be special paths by which urgent, certified, and personal messages can arrive. </li>
+<li>All other paths must be filtered. The goal is to limit the flow to a mailbox to the personal mental bandwidth of the owner.</li>
+</ol>
+<p>And 8 proposals:</p>
+<ol>
+<li>Hierarchical Organization Of Mailboxes</li>
+<li>Separate Private Mailboxes</li>
+<li>Special Forms Of Delivery</li>
+<li>Content Filters</li>
+<li>Importance Numbers</li>
+<li>Threshold Reception</li>
+<li>Document Skimmers.</li>
+<li>Quality Certification.</li>
+</ol>
+<h3 id="1987-Information-Lens-and-Xerox-PARC-Tapestry-System"><a href="#1987-Information-Lens-and-Xerox-PARC-Tapestry-System" class="headerlink" title="1987 Information Lens and Xerox PARC Tapestry System"></a>1987 Information Lens and Xerox PARC Tapestry System</h3><ul>
+<li>Define the filtering rules manually by each users</li>
+<li>Other users could access these rules</li>
+<li><strong>The prototype of collaborative filtering</strong>:help people make choices based on the opinions of other people</li>
+</ul>
+<h4 id="Matrix-Completion-Basic-tech-of-CF-and-RS"><a href="#Matrix-Completion-Basic-tech-of-CF-and-RS" class="headerlink" title="Matrix Completion - Basic tech of CF and RS"></a>Matrix Completion - Basic tech of CF and RS</h4><ul>
+<li>User-Item rating Matrix: Rows represent users, columns represent items, and each cell represents a user’s subjective preference for an item, determined based on an explicit report </li>
+<li>sparse matrix, SVD, machine-learning</li>
+</ul>
+<h3 id="1994-GroupLens-System"><a href="#1994-GroupLens-System" class="headerlink" title="1994 GroupLens System"></a>1994 GroupLens System</h3><p><img src="http://i.imgur.com/0pUnYp4.png" alt="Imgur"></p>
+<ul>
+<li>GroupLens is a system for collaborative filtering of netnews, to help people find articles they will like in the huge stream of available articles</li>
+<li>Inherit the idea of Tapestry, introduce the automated predictions (NN)</li>
+<li>First CF methods</li>
+</ul>
+<h3 id="1999-2003-Applied-on-Amazon-com"><a href="#1999-2003-Applied-on-Amazon-com" class="headerlink" title="1999-2003 Applied on Amazon.com"></a>1999-2003 Applied on Amazon.com</h3><p>(1 min, 8)<br>(3 slides, amazon logo, JB’s words, a figure of i2i)</p>
+<ul>
+<li>Amazon.com is mentioned as one of the early adopters of recommendation systems.</li>
+<li>Jeff Bezos, CEO of Amazon.com™, when he said “If I have 2 million customers on the Web, I should have 2 million stores on the Web.” </li>
+<li>item-to-item CF techniques as a targeted marketing tool had a huge impact on its business in terms of click-through and conversion rates</li>
+</ul>
+<h3 id="2006-The-Netflix-Prize"><a href="#2006-The-Netflix-Prize" class="headerlink" title="2006 The Netflix Prize"></a>2006 The Netflix Prize</h3><p>(1 min, 9)</p>
+<ul>
+<li>Million-dollar prize. </li>
+<li>The training dataset included 100 million real customer ratings. </li>
+<li>More than 5,000 teams registered for the competition and the prize was finally awarded in 26/6/2009 by team BellKor’s Pragmatic Chaos (BPC) </li>
+<li>Inspired lots of people to devote to the area of recommender system</li>
+</ul>
+<h4 id="Discussion-of-Criteria"><a href="#Discussion-of-Criteria" class="headerlink" title="Discussion of Criteria"></a>Discussion of Criteria</h4><p>(1 min, 10)<br>(This part is also a introduction of the part “Beyond Matrix Completion”)</p>
+<ul>
+<li>The prize was for the first algorithm to outperform Netflix’s in-house system by 10% on RMSE</li>
+<li>BPC’s algorithm blend hundreds of predictive models to finally cross the finish line 10%</li>
+<li>However, the algorithm which won the prize preforms not very well off-line<br>(The Netflix evaluated some of the new methods off-line but the additional accuracy gains that they measured did not seem to justify the engineering effort needed to bring them into a production environment. )</li>
+</ul>
+<h1 id="Beyond-Matrix-Completion"><a href="#Beyond-Matrix-Completion" class="headerlink" title="Beyond Matrix Completion"></a>Beyond Matrix Completion</h1><h2 id="2-disadvantages-of-Matrix-Completion"><a href="#2-disadvantages-of-Matrix-Completion" class="headerlink" title="2 disadvantages of Matrix Completion"></a>2 disadvantages of Matrix Completion</h2><h3 id="Postdiction-̸-prediction"><a href="#Postdiction-̸-prediction" class="headerlink" title="Postdiction ≠ prediction"></a>Postdiction ≠ prediction</h3><ul>
+<li>Need initial post data</li>
+<li>Predict poorly on a random set of items the user has not rated.</li>
+<li>Repeated recommendation of purchased items</li>
+<li>The evaluation method of Netflix Prize is misleading. RMSE(regression) vs Rank-based measures(sorting)</li>
+</ul>
+<h3 id="Quality-factors-beyond-accuracy"><a href="#Quality-factors-beyond-accuracy" class="headerlink" title="Quality factors beyond accuracy"></a>Quality factors beyond accuracy</h3><p>Introduce why we use the quality factors:<br>(7 slides: 6 for each point,  1 for Xavier)</p>
+<ul>
+<li>Novelty, diversity and unexpectedness(How to recommend new things to users exactly)</li>
+<li>Depend on context and different problems  </li>
+<li>Interact with users: conversational recommender systems</li>
+<li>Example of context and interaction:<a href="http://techblog.netflix.com/2016/10/to-be-continued.html" target="_blank" rel="noopener">To Be Continued: Helping you find shows to continue watching on Netflix</a>(search the “context”)</li>
+<li>Manipulation resistance(in detail)</li>
+<li>Recommendation is optimal to sellers not users - transparency and explanation strategy (nearly a moral problem). </li>
+</ul>
+<blockquote>
+<p>The Netflix Prize abstracted the recommendation problem to a proxy question of predicting ratings. But member ratings are only one of the many data sources we have and rating predictions are only part of our solution. Over time we have reformulated the recommendation problem to the question of optimizing the probability a member chooses to watch a title and enjoys it enough to come back to the service.<br>–Xavier Amatriain, Research/Engineer Director of Netflix, “Netflix Recommendations: Beyond the 5 stars”, 2012</p>
+</blockquote>
+<h1 id="Beyond-the-algorithm"><a href="#Beyond-the-algorithm" class="headerlink" title="Beyond the algorithm"></a>Beyond the algorithm</h1><h2 id="Interdisciplinarity"><a href="#Interdisciplinarity" class="headerlink" title="Interdisciplinarity"></a>Interdisciplinarity</h2><ul>
+<li>Impact of e-commerce “recommendation agents”.</li>
+<li>Different goal of RS in different situation(the evaluation metric is also different)</li>
+</ul>
+<h2 id="HCI-Human-computer-interaction"><a href="#HCI-Human-computer-interaction" class="headerlink" title="HCI(Human computer interaction)"></a>HCI(Human computer interaction)</h2><ul>
+<li>UI/UX design(facebook’s recommendation) ,(eye movement tracking), gesture-based (and other interact methods on mobile and wearable devices)interactions<br><img src="http://i.imgur.com/EpysEZ8.png" alt="Imgur"></li>
+<li>Implicit feedback, virtual advisers(chatbot)</li>
+</ul>
+<h2 id="New-definition"><a href="#New-definition" class="headerlink" title="New definition"></a>New definition</h2><ul>
+<li>Interplay between users, organizations, and the recommendation system (figure2)</li>
+<li>Goal, actions and an optimization timeframe</li>
+<li>New definition: Find a sequence of conversational actions and item recommendations for each particular user that optimizes the overall goal over the specified timeframe. </li>
+</ul>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h1><p>1.<a href="http://www.fxpal.com/publications/FXPAL-PR-06-383.pdf" target="_blank" rel="noopener">Content-based Recommendation Systems</a></p>
+<ol>
+<li><a href="http://recommender-systems.org/" target="_blank" rel="noopener">Recommender System</a></li>
+<li><a href="http://youngfor.me/post/recsys/man-tan-tui-jian-xi-tong" target="_blank" rel="noopener">漫谈推荐系统</a></li>
+<li><a href="https://technowiki.wordpress.com/2011/08/27/latent-semantic-analysis-lsa-tutorial/" target="_blank" rel="noopener">LSA tutorial</a></li>
+<li><a href="http://dl.acm.org/citation.cfm?id=358454" target="_blank" rel="noopener">Denning, P.J. ACM president’s letter: Electronic junk. Commun. ACM 25, 3 (Mar. 1982), 163–165.</a></li>
+<li><a href="https://grouplens.org/" target="_blank" rel="noopener">GroupLens</a></li>
+<li><a href="http://dl.acm.org/citation.cfm?id=192905&amp;CFID=920774832&amp;CFTOKEN=91747965" target="_blank" rel="noopener">GroupLens: an open architecture for collaborative filtering of netnews</a></li>
+<li><a href="http://dl.acm.org/citation.cfm?id=337035" target="_blank" rel="noopener">Recommender Systems in E-Commerce</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Netflix_Prize" target="_blank" rel="noopener">Wikipedia: Netflix Prize</a></li>
+<li><a href="http://techblog.netflix.com/2012/04/netflix-recommendations-beyond-5-stars.html" target="_blank" rel="noopener">Netflix Recommendations: Beyond the 5 stars (Part 1)</a></li>
+<li>[Netflix Recommendations: Beyond the 5 stars (Part 2)] (<a href="http://techblog.netflix.com/2012/06/netflix-recommendations-beyond-5-stars.html" target="_blank" rel="noopener">http://techblog.netflix.com/2012/06/netflix-recommendations-beyond-5-stars.html</a>)</li>
+<li><a href="http://cdc.tencent.com/2013/11/22/%E8%A7%A3%E8%AF%BB%E7%9C%BC%E5%8A%A8%E7%9A%8412%E4%B8%AA%E8%AF%AF%E5%8C%BA/" target="_blank" rel="noopener">解读眼动的12个误区</a></li>
+<li><a href="https://www.ibm.com/developerworks/library/os-recommender1/" target="_blank" rel="noopener">Learn about the concepts that underlie web recommendation engines</a></li>
+<li><a href="https://www.youtube.com/watch?v=d8SGTfcjY_g" target="_blank" rel="noopener">The Legend Of Zelda: Breath Of The Wild Title Screen (FM)</a></li>
+<li></li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Applied-Algorithms/" rel="tag"># Applied Algorithms</a>
+          
+            <a href="/tags/Recommender-System/" rel="tag"># Recommender System</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/03/sprt/" rel="next" title="Notes of Statistical Hypothesis Testing">
+                <i class="fa fa-chevron-left"></i> Notes of Statistical Hypothesis Testing
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/12/koke/" rel="prev" title="Pre-match banner for Koke">
+                Pre-match banner for Koke <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Typewind" />
+          <p class="site-author-name" itemprop="name">Typewind</p>
+           
+              <p class="site-description motion-element" itemprop="description">Computer Science, Football and ACG</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/typewind" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github-square"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/ShuyaoChen" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      Twitter
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/shuyaochen/" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin-square"></i>
+                  
+                    
+                      Linkedin
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        <div id="player1" class="aplayer"></div>
+<script src="/js/src/APlayer.min.js"></script>
+<script type="text/javascript">
+var ap = new APlayer({
+    element: document.getElementById('player1'),                       // Optional, player element
+    narrow: false,                                                     // Optional, narrow style
+    autoplay: false,                                                    // Optional, autoplay song(s), not supported by mobile browsers
+    showlrc: 0,                                                        // Optional, show lrc, can be 0, 1, 2, see: ###With lrc
+    mutex: true,                                                       // Optional, pause other players when this player playing
+    theme: '#e6d0b2',                                                  // Optional, theme color, default: #b7daff
+    mode: 'random',                                                    // Optional, play mode, can be `random` `single` `circulation`(loop) `order`(no loop), default: `circulation`
+    preload: 'metadata',                                               // Optional, the way to load music, can be 'none' 'metadata' 'auto', default: 'auto'
+    listmaxheight: '513px',                                             // Optional, max height of play list
+    music: [  
+    {
+	    	title: 'ネシ巻き師と太虚鳥.mp3',
+	    	author: 'lasah',
+	    	url: 'https://github.com/typewind/typewind.github.io/blob/music/lasah%20-%20%E3%83%8D%E3%82%B7%E3%82%99%E5%B7%BB%E3%81%8D%E5%B8%AB%E3%81%A8%E5%A4%AA%E8%99%9A%E9%B3%A5.mp3',
+
+	    },
+	    {
+	    	title: 'Secret',
+	    	author: '茶太',
+	    	url: 'http://ou68gv0zg.bkt.clouddn.com/%E8%8C%B6%E5%A4%AA%20-%20Secret.mp3',
+
+	    }]
+});
+</script>
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#A-Brief-History"><span class="nav-number">1.</span> <span class="nav-text">A Brief History</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Related-fields"><span class="nav-number">1.1.</span> <span class="nav-text">Related fields</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Informaton-Filtering-IF"><span class="nav-number">1.2.</span> <span class="nav-text">Informaton Filtering (IF)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#From-1960s"><span class="nav-number">1.2.1.</span> <span class="nav-text">From 1960s</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1982-ACM-president’s-letter"><span class="nav-number">1.2.2.</span> <span class="nav-text">1982: ACM president’s letter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1987-Information-Lens-and-Xerox-PARC-Tapestry-System"><span class="nav-number">1.2.3.</span> <span class="nav-text">1987 Information Lens and Xerox PARC Tapestry System</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Matrix-Completion-Basic-tech-of-CF-and-RS"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">Matrix Completion - Basic tech of CF and RS</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1994-GroupLens-System"><span class="nav-number">1.2.4.</span> <span class="nav-text">1994 GroupLens System</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1999-2003-Applied-on-Amazon-com"><span class="nav-number">1.2.5.</span> <span class="nav-text">1999-2003 Applied on Amazon.com</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2006-The-Netflix-Prize"><span class="nav-number">1.2.6.</span> <span class="nav-text">2006 The Netflix Prize</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Discussion-of-Criteria"><span class="nav-number">1.2.6.1.</span> <span class="nav-text">Discussion of Criteria</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Beyond-Matrix-Completion"><span class="nav-number">2.</span> <span class="nav-text">Beyond Matrix Completion</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-disadvantages-of-Matrix-Completion"><span class="nav-number">2.1.</span> <span class="nav-text">2 disadvantages of Matrix Completion</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Postdiction-̸-prediction"><span class="nav-number">2.1.1.</span> <span class="nav-text">Postdiction ≠ prediction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Quality-factors-beyond-accuracy"><span class="nav-number">2.1.2.</span> <span class="nav-text">Quality factors beyond accuracy</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Beyond-the-algorithm"><span class="nav-number">3.</span> <span class="nav-text">Beyond the algorithm</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Interdisciplinarity"><span class="nav-number">3.1.</span> <span class="nav-text">Interdisciplinarity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HCI-Human-computer-interaction"><span class="nav-number">3.2.</span> <span class="nav-text">HCI(Human computer interaction)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#New-definition"><span class="nav-number">3.3.</span> <span class="nav-text">New definition</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference:</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+Total visitors:<span id="busuanzi_value_site_pv"></span>
+</span>
+</div>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-dot"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Typewind</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://typewind.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://typewind.github.io/2017/04/05/rsbmc-notes/';
+          this.page.identifier = '2017/04/05/rsbmc-notes/';
+          this.page.title = 'Notes of \"Recommender Systems - Beyond Matrix Completion\"';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://typewind.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

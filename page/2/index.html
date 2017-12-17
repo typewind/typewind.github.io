@@ -94,16 +94,16 @@
 
 
 
-<meta name="description" content="Data science, Machine Learning, Football and ACG">
+<meta name="description" content="Computer Science, Football and ACG">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Mean Machine">
 <meta property="og:url" content="https://typewind.github.io/page/2/index.html">
 <meta property="og:site_name" content="Mean Machine">
-<meta property="og:description" content="Data science, Machine Learning, Football and ACG">
+<meta property="og:description" content="Computer Science, Football and ACG">
 <meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mean Machine">
-<meta name="twitter:description" content="Data science, Machine Learning, Football and ACG">
+<meta name="twitter:description" content="Computer Science, Football and ACG">
 
 
 
@@ -274,7 +274,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2017/06/15/2017-06-15-tf-ones-like-tricks/">
+    <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2017/06/19/TF-video-detection-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Typewind">
@@ -293,7 +293,171 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/06/15/2017-06-15-tf-ones-like-tricks/" itemprop="url">Tricks of tf.ones_like</a></h1>
+                <a class="post-title-link" href="/2017/06/19/TF-video-detection-1/" itemprop="url">Play with TF-Object Detection - 1. Installation</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-19T12:03:12+01:00">
+                2017-06-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/19/TF-video-detection-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/06/19/TF-video-detection-1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><h2 id="Fink-for-Mac-OS"><a href="#Fink-for-Mac-OS" class="headerlink" title="Fink (for Mac OS)"></a>Fink (for Mac OS)</h2><p>Basic installation tutorial of TF-Object Detection used <code>apt-get</code> to install packages. I tried use <code>brew</code> to replace it but some packages are missed. Fortunately, we can use <code>apt-get</code> after installing the <a href="http://www.finkproject.org/download/srcdist.php?phpLang=zh" target="_blank" rel="noopener">Fink</a>.    </p>
+<p>Fink provided a <a href="https://github.com/fink/scripts/blob/master/srcinstaller/Install%20Fink.tool" target="_blank" rel="noopener">helper script</a> to install all things automatically. The Installation cost nearly half an hour on my computer, here is the whole process:</p>
+<ol>
+<li>Save the script on the Desktop (or whatever you like) as “Fink.sh”</li>
+<li>Run <code>~/Desktop/Fink.sh</code></li>
+<li>If you didn’t install the full Xcode or Xquartz, the script will ask you whether you’d like to install them. After installing the Xcode and Xquartz, we should run <code>~/Desktop/Fink.sh</code> again to continue the process of Fink.</li>
+<li>Waiting for the installation until the Fink ask you several questions like<blockquote>
+<ul>
+<li>I’ll ask you some questions and update the configuration file in<br>‘/sw/etc/fink.conf’.</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>In what additional directory should Fink look for downloaded tarballs? </li>
+<li>Which directory should Fink use to build packages? (If you don’t know what this means, it is safe to leave it at its default.) </li>
+<li>….</li>
+</ul>
+<p>Here just need to press <strong>“Enter”</strong> again and again to leave them at its default. Then have a coffee and wait for a few minutes :)</p>
+<p>After the installation is done, remember to restart the terminal and run <code>fink update-all</code> to active the fink. Now apt-get is available on Mac OS :D</p>
+<p><img src="http://i.imgur.com/WoqT5vP.png" alt="Imgur"></p>
+<h2 id="Install-Object-Detection-model"><a href="#Install-Object-Detection-model" class="headerlink" title="Install Object Detection model"></a>Install Object Detection model</h2><p>The basic version of Tensorflow didn’t contain the models. So we should run<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> From /tensorflow</span><br><span class="line">git clone https://github.com/tensorflow/models</span><br></pre></td></tr></table></figure></p>
+<p>Then compile the photoruf libraries by running:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> From tensorflow/models</span><br><span class="line">protoc object_detection/protos/*.proto --python_out=.</span><br></pre></td></tr></table></figure></p>
+<p>If photoruf was not installed, then run<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew photoruf</span><br></pre></td></tr></table></figure></p>
+<p>to install it first.</p>
+<p>Then set the pre-trained model path by:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> From tensorflow/models/</span><br><span class="line">export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim</span><br></pre></td></tr></table></figure></p>
+<p>From this line, we can find it is obvious that <strong>object detection use the TF-slim to extract the features.</strong></p>
+<p>To test whether the model has been installed successfully or not, run:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python object_detection/builders/model_builder_test.py</span><br></pre></td></tr></table></figure></p>
+<p>under your environment. If you use the VirtualEnv, remember run this first:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/tensorflow/bin/active</span><br></pre></td></tr></table></figure></p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h1><ol>
+<li><a href="https://github.com/tensorflow/models/blob/master/object_detection/g3doc/installation.md" target="_blank" rel="noopener">TF-Object Detection Model</a></li>
+<li><a href="http://www.finkproject.org/download/srcdist.php?phpLang=zh" target="_blank" rel="noopener">Fink</a></li>
+<li><a href="http://stupidbeauty.com/Blog/article/873/Fink%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%EF%BC%9AFink%200.35.1%E5%AE%89%E8%A3%85,Fink%200.35.1%20Installation" target="_blank" rel="noopener">Document of Fink</a></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2017/06/15/tf-ones-like-tricks/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Typewind">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mean Machine">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/15/tf-ones-like-tricks/" itemprop="url">Tricks of tf.ones_like</a></h1>
         
 
         <div class="post-meta">
@@ -324,9 +488,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/06/15/2017-06-15-tf-ones-like-tricks/#comments" itemprop="discussionUrl">
+                <a href="/2017/06/15/tf-ones-like-tricks/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/06/15/2017-06-15-tf-ones-like-tricks/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/06/15/tf-ones-like-tricks/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -419,7 +583,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2017/06/08/2017-06-08-TFslim-with-python3/">
+    <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2017/06/08/TFslim-with-python3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Typewind">
@@ -438,7 +602,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/06/08/2017-06-08-TFslim-with-python3/" itemprop="url">Fix the error of TensorFlow Slim with Python 3</a></h1>
+                <a class="post-title-link" href="/2017/06/08/TFslim-with-python3/" itemprop="url">Fix the error of TensorFlow Slim with Python 3</a></h1>
         
 
         <div class="post-meta">
@@ -469,9 +633,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/06/08/2017-06-08-TFslim-with-python3/#comments" itemprop="discussionUrl">
+                <a href="/2017/06/08/TFslim-with-python3/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/06/08/2017-06-08-TFslim-with-python3/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/06/08/TFslim-with-python3/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -551,7 +715,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2017/06/08/2017-06-08-transfer-learning/">
+    <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2017/06/08/transfer-learning/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Typewind">
@@ -570,7 +734,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/06/08/2017-06-08-transfer-learning/" itemprop="url">Brief Summary of Transfer learning</a></h1>
+                <a class="post-title-link" href="/2017/06/08/transfer-learning/" itemprop="url">Brief Summary of Transfer learning</a></h1>
         
 
         <div class="post-meta">
@@ -601,9 +765,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/06/08/2017-06-08-transfer-learning/#comments" itemprop="discussionUrl">
+                <a href="/2017/06/08/transfer-learning/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/06/08/2017-06-08-transfer-learning/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/06/08/transfer-learning/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -696,7 +860,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2017/06/06/2017-06-06-rank-n-matchingrate/">
+    <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2017/06/06/rank-n-matchingrate/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Typewind">
@@ -715,7 +879,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/06/06/2017-06-06-rank-n-matchingrate/" itemprop="url">Top rank matching rate</a></h1>
+                <a class="post-title-link" href="/2017/06/06/rank-n-matchingrate/" itemprop="url">Top rank matching rate</a></h1>
         
 
         <div class="post-meta">
@@ -746,9 +910,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/06/06/2017-06-06-rank-n-matchingrate/#comments" itemprop="discussionUrl">
+                <a href="/2017/06/06/rank-n-matchingrate/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/06/06/2017-06-06-rank-n-matchingrate/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/06/06/rank-n-matchingrate/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -828,7 +992,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2017/06/06/2017-06-06-WH-MSCR-RHSP/">
+    <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2017/06/06/WH-MSCR-RHSP/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Typewind">
@@ -847,7 +1011,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/06/06/2017-06-06-WH-MSCR-RHSP/" itemprop="url">Definition of WH,MSCR and RHSP</a></h1>
+                <a class="post-title-link" href="/2017/06/06/WH-MSCR-RHSP/" itemprop="url">Definition of WH,MSCR and RHSP</a></h1>
         
 
         <div class="post-meta">
@@ -878,9 +1042,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/06/06/2017-06-06-WH-MSCR-RHSP/#comments" itemprop="discussionUrl">
+                <a href="/2017/06/06/WH-MSCR-RHSP/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/06/06/2017-06-06-WH-MSCR-RHSP/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/06/06/WH-MSCR-RHSP/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -917,7 +1081,7 @@
 <li>RHSP shows the texture
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/06/06/2017-06-06-WH-MSCR-RHSP/#more" rel="contents">
+            <a class="btn" href="/2017/06/06/WH-MSCR-RHSP/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -968,7 +1132,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2017/06/05/2017-06-05-re-id-intro/">
+    <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2017/06/05/re-id-intro/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Typewind">
@@ -987,7 +1151,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/06/05/2017-06-05-re-id-intro/" itemprop="url">Approaches of Human Action Re-Identificaiton</a></h1>
+                <a class="post-title-link" href="/2017/06/05/re-id-intro/" itemprop="url">Approaches of Human Action Re-Identificaiton</a></h1>
         
 
         <div class="post-meta">
@@ -1018,9 +1182,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/06/05/2017-06-05-re-id-intro/#comments" itemprop="discussionUrl">
+                <a href="/2017/06/05/re-id-intro/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/06/05/2017-06-05-re-id-intro/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/06/05/re-id-intro/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1053,7 +1217,7 @@
 <p>(This outline is arranged from [2]. I’m still reading these papers and I’ll add some comment for several interesting methods in this week.)<br>The methods depend on the different data set. For example, methods related to the facial recognition is not suitable for the <a href="http://www.liangzheng.org/Project/project_reid.html" target="_blank" rel="noopener">Market1501</a>.<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/06/05/2017-06-05-re-id-intro/#more" rel="contents">
+            <a class="btn" href="/2017/06/05/re-id-intro/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1104,7 +1268,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2017/05/04/2017-05-04-CaviaPP/">
+    <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2017/05/04/CaviaPP/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Typewind">
@@ -1123,7 +1287,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/05/04/2017-05-04-CaviaPP/" itemprop="url">Notes of "Combinational Auction via Poster Price"</a></h1>
+                <a class="post-title-link" href="/2017/05/04/CaviaPP/" itemprop="url">Notes of "Combinational Auction via Poster Price"</a></h1>
         
 
         <div class="post-meta">
@@ -1154,9 +1318,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/05/04/2017-05-04-CaviaPP/#comments" itemprop="discussionUrl">
+                <a href="/2017/05/04/CaviaPP/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/05/04/2017-05-04-CaviaPP/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/05/04/CaviaPP/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1188,7 +1352,7 @@
           <h1 id="History-and-Importance-of-the-problem"><a href="#History-and-Importance-of-the-problem" class="headerlink" title="History and Importance of the problem"></a>History and Importance of the problem</h1><p>Since the spectrum auction of Federal Communications Commission (FCC) in 1989, combinatorial auction becomes a very active field between economy and computer science [1]. On the other hand, the posted price mechanism is the cornerstone of the E-commerce, especially in online shopping. Therefore, it is meaningful to design combinatorial auction mechanisms via posted price.<br>In combinatorial auction, the valuation of bundle is not always equal to the sum of items in bundle naively (e.g. subaddictive, submodular, XOS, etc.). The aim of combinatorial auction is to maximize the social welfare by allocating the items. It is obvious that we can solve this problem by running VCG algorithm. However, VCG algorithm is computationally infeasible for complex problems [2]. Thus, a natural idea appears: can we design an approximate algorithm which can be implemented in polynomial time?</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/05/04/2017-05-04-CaviaPP/#more" rel="contents">
+            <a class="btn" href="/2017/05/04/CaviaPP/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1239,7 +1403,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2017/04/27/2017-04-27-conda-ve/">
+    <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2017/04/27/conda-ve/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Typewind">
@@ -1258,7 +1422,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/04/27/2017-04-27-conda-ve/" itemprop="url">Install Virtualenv with Anaconda</a></h1>
+                <a class="post-title-link" href="/2017/04/27/conda-ve/" itemprop="url">Install Virtualenv with Anaconda</a></h1>
         
 
         <div class="post-meta">
@@ -1289,9 +1453,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/27/2017-04-27-conda-ve/#comments" itemprop="discussionUrl">
+                <a href="/2017/04/27/conda-ve/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/04/27/2017-04-27-conda-ve/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/04/27/conda-ve/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1374,7 +1538,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2017/04/12/2017-04-12-koke/">
+    <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2017/04/12/koke/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Typewind">
@@ -1393,7 +1557,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/04/12/2017-04-12-koke/" itemprop="url">Pre-match banner for Koke</a></h1>
+                <a class="post-title-link" href="/2017/04/12/koke/" itemprop="url">Pre-match banner for Koke</a></h1>
         
 
         <div class="post-meta">
@@ -1424,9 +1588,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/12/2017-04-12-koke/#comments" itemprop="discussionUrl">
+                <a href="/2017/04/12/koke/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/04/12/2017-04-12-koke/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/04/12/koke/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1459,142 +1623,6 @@
             <p>Illustrated as the banner of the game Atletico vs Leicester City<br><img src="http://i.imgur.com/It4RzFi.png" alt="koke"><br><a href="https://bbs.hupu.com/18944676.html" target="_blank" rel="noopener">Match Thread (in Chinese)</a><br>要做的事堆积如山，这样的感觉真是久违了呢（笑）<br>第一回合已经顺利拿下，希望第二回合继续稳扎稳打</p>
 
           
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2017/04/05/2017-04-05-rsbmc-notes/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Typewind">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mean Machine">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/04/05/2017-04-05-rsbmc-notes/" itemprop="url">Notes of "Recommender Systems - Beyond Matrix Completion"</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-05T14:00:30+01:00">
-                2017-04-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/04/05/2017-04-05-rsbmc-notes/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/04/05/2017-04-05-rsbmc-notes/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><iframe width="560" height="315" src="https://www.youtube.com/embed/bwwwEfORCtw" frameborder="0" allowfullscreen></iframe><br>Our video presentation of Recommender Systems - Beyond Matrix Completion</p>
-<p>Video: Shuyao Chen<br>Audio: Aidon Blong<br>Script: Aidon Blong, Shuyao Chen, Felix Udanyi<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/05/2017-04-05-rsbmc-notes/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -1670,7 +1698,7 @@
                alt="Typewind" />
           <p class="site-author-name" itemprop="name">Typewind</p>
            
-              <p class="site-description motion-element" itemprop="description">Data science, Machine Learning, Football and ACG</p>
+              <p class="site-description motion-element" itemprop="description">Computer Science, Football and ACG</p>
           
         </div>
         <nav class="site-state motion-element">
@@ -1678,7 +1706,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1691,7 +1719,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -1746,7 +1774,34 @@
         
         
 
-        
+        <div id="player1" class="aplayer"></div>
+<script src="/js/src/APlayer.min.js"></script>
+<script type="text/javascript">
+var ap = new APlayer({
+    element: document.getElementById('player1'),                       // Optional, player element
+    narrow: false,                                                     // Optional, narrow style
+    autoplay: false,                                                    // Optional, autoplay song(s), not supported by mobile browsers
+    showlrc: 0,                                                        // Optional, show lrc, can be 0, 1, 2, see: ###With lrc
+    mutex: true,                                                       // Optional, pause other players when this player playing
+    theme: '#e6d0b2',                                                  // Optional, theme color, default: #b7daff
+    mode: 'random',                                                    // Optional, play mode, can be `random` `single` `circulation`(loop) `order`(no loop), default: `circulation`
+    preload: 'metadata',                                               // Optional, the way to load music, can be 'none' 'metadata' 'auto', default: 'auto'
+    listmaxheight: '513px',                                             // Optional, max height of play list
+    music: [  
+    {
+	    	title: 'ネシ巻き師と太虚鳥.mp3',
+	    	author: 'lasah',
+	    	url: 'https://github.com/typewind/typewind.github.io/blob/music/lasah%20-%20%E3%83%8D%E3%82%B7%E3%82%99%E5%B7%BB%E3%81%8D%E5%B8%AB%E3%81%A8%E5%A4%AA%E8%99%9A%E9%B3%A5.mp3',
+
+	    },
+	    {
+	    	title: 'Secret',
+	    	author: '茶太',
+	    	url: 'http://ou68gv0zg.bkt.clouddn.com/%E8%8C%B6%E5%A4%AA%20-%20Secret.mp3',
+
+	    }]
+});
+</script>
 
 
       </section>
