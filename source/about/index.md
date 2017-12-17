@@ -1,22 +1,25 @@
 ---
 title: About me
-date: 2017-05-16 23:45:33
+date: 2017-12-15 23:45:33
 ---
 
 # Summary
- - Novice Data Scientist
+ - Current Strategy Consultant @ Amey
+ - Former member of Women Football Team @ University of Liverpool
+ - Former Operation Specialist @ Hupu Sports Media
+ - Former UI/UX designer @ Xiaomi Technology
  - Former Indie Game Designer
- - Former Football Journalist 
- - 20/04/1992, Chinese, Female, still young
+ - Former director of Sci-Fi Association, Computer Clinic @ South China University of Technology
+ - 1992, Monkey, Chinese girl, Still young
 
 ---
 
 # Professional Skills
 ## Programming
 - Preferred Language:
-Python, C/C++, HTML5+CSS3+JavaScript, SQL
+Python, HTML5+CSS3+JavaScript,C/C++, SQL
 - Preferred Libraries and ToolKits:
-Plotly, Tensorflow, Keras, Scikit-Learn, Pandas, Unity3D, Phaser
+Plotly, Numpy, Scikit-Learn, Pandas, Tensorflow, Keras, Unity3D, Phaser
 - Areas of Expertise
 Machine Learning, Data Mining, Visualization, Computer Graphics, Game Design, Game Development
 
