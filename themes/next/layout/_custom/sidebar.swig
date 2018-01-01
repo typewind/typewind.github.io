@@ -11,12 +11,16 @@ var ap = new APlayer({
     mode: 'random',                                                    // Optional, play mode, can be `random` `single` `circulation`(loop) `order`(no loop), default: `circulation`
     preload: 'metadata',                                               // Optional, the way to load music, can be 'none' 'metadata' 'auto', default: 'auto'
     listmaxheight: '513px',                                             // Optional, max height of play list
-    music: {                                                           // Required, music info, see: ###With playlist
-                title: 'secret base~君がくれたもの~',
-                author: '茅野愛衣',
-                url: 'http://devtest.qiniudn.com/secret base~.mp3',
-                pic: 'http://devtest.qiniudn.com/secret base~.jpg',
-        		lrc: 'https://github.com/MoePlayer/APlayer/blob/master/demo/secret%20base~%E5%90%9B%E3%81%8C%E3%81%8F%E3%82%8C%E3%81%9F%E3%82%82%E3%81%AE~.lrc'
-    },
+    music: [  
+    
+	    {
+	    	title: '月光',
+	    	author: '鬼束千寻',
+	    	url: 'http://ou68gv0zg.bkt.clouddn.com/%E9%AC%BC%E6%9D%9F%E5%8D%83%E5%AF%BB%20-%20%E6%9C%88%E5%85%89.mp3',
+	    	pic: 'https://i.imgur.com/GRLlItn.png'
+	    },
+
+
+        ]
 });
 </script>

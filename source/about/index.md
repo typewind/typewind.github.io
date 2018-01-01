@@ -4,13 +4,15 @@ date: 2017-12-15 23:45:33
 ---
 
 # Summary
- - Current Strategy Consultant @ Amey
+ - Current Strategy Consultant @ Amey, London
  - Former member of Women Football Team @ University of Liverpool
- - Former Operation Specialist @ Hupu Sports Media
- - Former UI/UX designer @ Xiaomi Technology
- - Former Indie Game Designer
- - Former director of Sci-Fi Association, Computer Clinic @ South China University of Technology
+ - Former Operation Specialist @ Hupu Sports Media, Shanghai
+ - Former UI/UX Designer @ Xiaomi Technology, Beijing
+ - Former Indie Game Designer 
+ - Former director of Sci-Fi Association & Computer Clinic @ South China University of Technology, Guangzhou
  - 1992, Monkey, Chinese girl, Still young
+ 
+> To explore strange new worlds, to seek out new life and new civilizations, to boldly go where no one has gone before
 
 ---
 
@@ -36,7 +38,7 @@ UI/UX design, Digital Media Processing
 - Football: no football no second life
     + Home teams: Atletico and Liverpool
 - Anime: 我が生涯に一片の悔い無し
-- Reading: especially the history, economy, culture, geography and Sci-Fi
+- Reading: especially the history, philosophy, culture, geography and Sci-Fi
 - Piano: play some personal arrange pieces of game OST
 - delicious meat: just eat
 

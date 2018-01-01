@@ -3,6 +3,7 @@ title: EChart for Hexo
 date: 2017-11-22 07:35:33
 tags:
 - Visualization
+- Echarts
 ---
 
 [Echart](https://github.com/zhoulvjun/hexo-tag-echarts) is an amazing D3-based visualization plug-in for the Hexo. Here is a sample rendered by Echart.
@@ -150,3 +151,7 @@ Done. Here is the test table:
 };
 {% endecharts %}
 ```
+
+# Documents and Examples
+[Echarts GJ Demos](http://echarts.baidu.com/demo.html#area-stack)
+[Echarts Official Demos and Documents](http://echarts.baidu.com/echarts2/doc/example.html)
