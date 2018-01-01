@@ -377,11 +377,11 @@
 <p>Here just need to press <strong>“Enter”</strong> again and again to leave them at its default. Then have a coffee and wait for a few minutes :)</p>
 <p>After the installation is done, remember to restart the terminal and run <code>fink update-all</code> to active the fink. Now apt-get is available on Mac OS :D</p>
 <p><img src="http://i.imgur.com/WoqT5vP.png" alt="Imgur"></p>
-<h2 id="Install-Object-Detection-model"><a href="#Install-Object-Detection-model" class="headerlink" title="Install Object Detection model"></a>Install Object Detection model</h2><p>The basic version of Tensorflow didn’t contain the models. So we should run<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> From /tensorflow</span><br><span class="line">git clone https://github.com/tensorflow/models</span><br></pre></td></tr></table></figure></p>
-<p>Then compile the photoruf libraries by running:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> From tensorflow/models</span><br><span class="line">protoc object_detection/protos/*.proto --python_out=.</span><br></pre></td></tr></table></figure></p>
+<h2 id="Install-Object-Detection-model"><a href="#Install-Object-Detection-model" class="headerlink" title="Install Object Detection model"></a>Install Object Detection model</h2><p>The basic version of Tensorflow didn’t contain the models. So we should run<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> From /tensorflow</span></span><br><span class="line">git clone https://github.com/tensorflow/models</span><br></pre></td></tr></table></figure></p>
+<p>Then compile the photoruf libraries by running:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> From tensorflow/models</span></span><br><span class="line">protoc object_detection/protos/*.proto --python_out=.</span><br></pre></td></tr></table></figure></p>
 <p>If photoruf was not installed, then run<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew photoruf</span><br></pre></td></tr></table></figure></p>
 <p>to install it first.</p>
-<p>Then set the pre-trained model path by:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> From tensorflow/models/</span><br><span class="line">export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim</span><br></pre></td></tr></table></figure></p>
+<p>Then set the pre-trained model path by:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> From tensorflow/models/</span></span><br><span class="line">export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim</span><br></pre></td></tr></table></figure></p>
 <p>From this line, we can find it is obvious that <strong>object detection use the TF-slim to extract the features.</strong></p>
 <p>To test whether the model has been installed successfully or not, run:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python object_detection/builders/model_builder_test.py</span><br></pre></td></tr></table></figure></p>
 <p>under your environment. If you use the VirtualEnv, remember run this first:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/tensorflow/bin/active</span><br></pre></td></tr></table></figure></p>
@@ -1719,7 +1719,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-count">46</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
