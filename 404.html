@@ -160,10 +160,10 @@ $('.four-oh-four-form').on('submit', function(e){
   var val = $(this).children($('.404-input')).val().toLowerCase();
   var href;
 
-	 if (val === 'SONY'){
+	 if (val === 'sony'){
     showKittens();
   }
-  else if(val === 'NINTENDO'){
+  else if(val === 'nintendo'){
     window.location="https://typewind.github.io/";
   }
   else {
@@ -172,8 +172,9 @@ $('.four-oh-four-form').on('submit', function(e){
 });
 
 function resetForm(withKittens){
-  var message = "You must make a choice..."
+  var message = "You must make a choice next time..."
   var input = $('.404-input');
+  window.location="https://typewind.github.io/";
 
   if (withKittens){
     $('.kittens').removeClass('kittens');
