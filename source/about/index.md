@@ -4,6 +4,13 @@ date: 2017-12-15 23:45:33
 ---
 
 # Summary
+ 
+> To explore strange new worlds, 
+> to seek out new life and new civilizations, 
+> to boldly go where no one has gone before
+> --Star Trek
+
+
  - Current Strategy Consultant @ Amey, London
  - Former member of Women Football Team @ University of Liverpool
  - Former Operation Specialist @ Hupu Sports Media, Shanghai
@@ -11,8 +18,7 @@ date: 2017-12-15 23:45:33
  - Former Indie Game Designer 
  - Former director of Sci-Fi Association & Computer Clinic @ South China University of Technology, Guangzhou
  - 1992, Monkey, Chinese girl, Still young
- 
-> To explore strange new worlds, to seek out new life and new civilizations, to boldly go where no one has gone before
+
 
 ---
 
@@ -23,7 +29,7 @@ Python, HTML5+CSS3+JavaScript,C/C++, SQL
 - Preferred Libraries and ToolKits:
 Plotly, Numpy, Scikit-Learn, Pandas, Tensorflow, Keras, Unity3D, Phaser
 - Areas of Expertise
-Machine Learning, Data Mining, Visualization, Computer Graphics, Game Design, Game Development
+Machine Learning, Data Mining, Visualization, Modeling, Computer Graphics, Game Design, Game Development
 
 ## Design
 - Preferred software:
@@ -35,6 +41,8 @@ UI/UX design, Digital Media Processing
 # Others
 ## Hobbies
 - Games: no game no life. 
+    + 3DS-FC：2380-6116-2933  SUN/ORAS/MH4G/MHX
+    + SW-FC：SW-6301-7155-8723 FIFA/Rocket Leaugue/Mario Kart
 - Football: no football no second life
     + Home teams: Atletico and Liverpool
 - Anime: 我が生涯に一片の悔い無し
