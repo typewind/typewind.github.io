@@ -94,19 +94,19 @@
 
 
 
-<meta name="description" content="Datetime format is very frequently used in real world. This post is a summary of several libraries related to datetime in Python.">
+<meta name="description" content="Datetime format is very frequently used in real world. This post summarized basic usage of datetime in python and pandas and introduced the dateutil library wit">
 <meta name="keywords" content="Python,Pandas,Data Analysis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python Datetime Summary">
 <meta property="og:url" content="https://typewind.github.io/2018/01/05/python-datetime/index.html">
 <meta property="og:site_name" content="Mean Machine">
-<meta property="og:description" content="Datetime format is very frequently used in real world. This post is a summary of several libraries related to datetime in Python.">
+<meta property="og:description" content="Datetime format is very frequently used in real world. This post summarized basic usage of datetime in python and pandas and introduced the dateutil library with examples.">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.imgur.com/96bnqVr.png">
-<meta property="og:updated_time" content="2018-01-07T22:45:36.438Z">
+<meta property="og:updated_time" content="2018-01-08T00:28:21.880Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python Datetime Summary">
-<meta name="twitter:description" content="Datetime format is very frequently used in real world. This post is a summary of several libraries related to datetime in Python.">
+<meta name="twitter:description" content="Datetime format is very frequently used in real world. This post summarized basic usage of datetime in python and pandas and introduced the dateutil library with examples.">
 <meta name="twitter:image" content="https://i.imgur.com/96bnqVr.png">
 
 
@@ -355,8 +355,22 @@
 
       
         <p><img src="https://i.imgur.com/96bnqVr.png" alt="Imgur"></p>
-<p>Datetime format is very frequently used in real world. This post is a summary of several libraries related to datetime in Python.<br><a id="more"></a></p>
-<h1 id="Python-Datetime"><a href="#Python-Datetime" class="headerlink" title="Python Datetime"></a>Python Datetime</h1><h1 id="Datetime-in-Pandas"><a href="#Datetime-in-Pandas" class="headerlink" title="Datetime in Pandas"></a>Datetime in Pandas</h1><h1 id="Dateutil"><a href="#Dateutil" class="headerlink" title="Dateutil"></a>Dateutil</h1>
+<p><a href="https://docs.python.org/3/library/datetime.html" target="_blank" rel="noopener">Datetime</a> format is very frequently used in real world. This post summarized basic usage of <code>datetime</code> in python and pandas and introduced the <code>dateutil</code> library with examples.<br><a id="more"></a></p>
+<h1 id="Basic-Python-Datetime"><a href="#Basic-Python-Datetime" class="headerlink" title="Basic Python Datetime"></a>Basic Python Datetime</h1><p>The main module/objects of <a href="https://docs.python.org/3/library/datetime.html" target="_blank" rel="noopener">Datetime</a><br>are:</p>
+<ul>
+<li>datetime.datetime<ul>
+<li><a href="https://docs.python.org/3/library/datetime.html#datetime.date" target="_blank" rel="noopener">datetime.date</a></li>
+<li><a href="https://docs.python.org/3/library/datetime.html#datetime.time" target="_blank" rel="noopener">datetime.time</a></li>
+<li><a href="https://docs.python.org/3/library/datetime.html#datetime.datetime" target="_blank" rel="noopener">datetime.datetime</a></li>
+</ul>
+</li>
+<li><a href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" target="_blank" rel="noopener">datetime.timedelta</a></li>
+</ul>
+<p><code>datetime.datetime</code> can be regarded as a combination of <code>datetime.date</code> and <code>datetime.time</code>. And <code>datetime.timedelta</code> is a standard format of time difference. </p>
+<h2 id="datetime-datetime"><a href="#datetime-datetime" class="headerlink" title="datetime.datetime"></a>datetime.datetime</h2><p><code>datetime.datetime</code> contains the following attributes:<br>| Attribute | Directive | Class |<br>|———–|———–|——-|<br>|     *Year    |    %Y       |    datetime.date   |<br>|      Month     |    %m       |    datetime.date   |<br>|      Day     |     %d      |   datetime.date    |<br>|     Hour      |    %H       |    datetime.time   |<br>|      Minute     |    %M       |    datetime.time  |<br>|      Second     |     %S      |   datetime.time    |<br>|      Microsecond     |    %f       |    datetime.time  |</p>
+<p>*: <code>%Y</code> is the year with the century (e.g: 1998, 1999), and <code>%y</code> is the year withour century (e.g: 98,99)</p>
+<h1 id="Datetime-in-Pandas"><a href="#Datetime-in-Pandas" class="headerlink" title="Datetime in Pandas"></a>Datetime in Pandas</h1><h1 id="Dateutil-Better-Way-to-Calculate-Timedelta"><a href="#Dateutil-Better-Way-to-Calculate-Timedelta" class="headerlink" title="Dateutil - Better Way to Calculate Timedelta"></a>Dateutil - Better Way to Calculate Timedelta</h1><p><a href="https://dateutil.readthedocs.io/en/stable/" target="_blank" rel="noopener">Dateutil</a> is a useful extension library of python <code>datetime</code>. Sometimes, we need to calculate the date 3 month from the current date, or we need to calculate how many months between 2 dates. These problem is annoying because the days in each month are different. The dateutil is perfect for these applications.</p>
+<h2 id="Dateutil-relativedelta"><a href="#Dateutil-relativedelta" class="headerlink" title="Dateutil.relativedelta"></a>Dateutil.relativedelta</h2><h2 id="Dateutil-rrule"><a href="#Dateutil-rrule" class="headerlink" title="Dateutil.rrule"></a>Dateutil.rrule</h2>
       
     </div>
     
@@ -645,7 +659,7 @@ var ap = new APlayer({
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-Datetime"><span class="nav-number">1.</span> <span class="nav-text">Python Datetime</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Datetime-in-Pandas"><span class="nav-number">2.</span> <span class="nav-text">Datetime in Pandas</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Dateutil"><span class="nav-number">3.</span> <span class="nav-text">Dateutil</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Python-Datetime"><span class="nav-number">1.</span> <span class="nav-text">Basic Python Datetime</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#datetime-datetime"><span class="nav-number">1.1.</span> <span class="nav-text">datetime.datetime</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Datetime-in-Pandas"><span class="nav-number">2.</span> <span class="nav-text">Datetime in Pandas</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Dateutil-Better-Way-to-Calculate-Timedelta"><span class="nav-number">3.</span> <span class="nav-text">Dateutil - Better Way to Calculate Timedelta</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Dateutil-relativedelta"><span class="nav-number">3.1.</span> <span class="nav-text">Dateutil.relativedelta</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dateutil-rrule"><span class="nav-number">3.2.</span> <span class="nav-text">Dateutil.rrule</span></a></li></ol></li></ol></div>
             
 
           </div>
