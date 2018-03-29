@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Machine Learning,Python,Keras," />
+  <meta name="keywords" content="python" />
 
 
 
@@ -94,18 +94,19 @@
 
 
 
-<meta name="description" content="In these days ,I am trying to integrate my re-id network. Then I found the official example of Siamese CNNs of the Keras based on the MNIST dataset. Actually it">
-<meta name="keywords" content="Machine Learning,Python,Keras">
+<meta name="description" content="I feel Spanish sounds like Japanese guy speak English xD.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Bugs in mnist_siamese_graph.py of Keras example">
-<meta property="og:url" content="https://typewind.github.io/2017/07/02/keras-siamese-bug/index.html">
+<meta property="og:title" content="Notes of Spanish Nivel 1">
+<meta property="og:url" content="https://typewind.github.io/2018/03/28/spanish-1/index.html">
 <meta property="og:site_name" content="Mean Machine">
-<meta property="og:description" content="In these days ,I am trying to integrate my re-id network. Then I found the official example of Siamese CNNs of the Keras based on the MNIST dataset. Actually it is a very good example about how to int">
+<meta property="og:description" content="I feel Spanish sounds like Japanese guy speak English xD.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-07-03T11:25:38.000Z">
+<meta property="og:image" content="https://i.imgur.com/SARPUGm.png">
+<meta property="og:updated_time" content="2018-03-28T20:25:45.318Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bugs in mnist_siamese_graph.py of Keras example">
-<meta name="twitter:description" content="In these days ,I am trying to integrate my re-id network. Then I found the official example of Siamese CNNs of the Keras based on the MNIST dataset. Actually it is a very good example about how to int">
+<meta name="twitter:title" content="Notes of Spanish Nivel 1">
+<meta name="twitter:description" content="I feel Spanish sounds like Japanese guy speak English xD.">
+<meta name="twitter:image" content="https://i.imgur.com/SARPUGm.png">
 
 
 
@@ -134,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="https://typewind.github.io/2017/07/02/keras-siamese-bug/"/>
+  <link rel="canonical" href="https://typewind.github.io/2018/03/28/spanish-1/"/>
 
 
 
 
 
-  <title>Bugs in mnist_siamese_graph.py of Keras example | Mean Machine</title>
+  <title>Notes of Spanish Nivel 1 | Mean Machine</title>
   
 
 
@@ -274,7 +275,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2017/07/02/keras-siamese-bug/">
+    <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2018/03/28/spanish-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Typewind">
@@ -291,7 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Bugs in mnist_siamese_graph.py of Keras example</h1>
+          <h1 class="post-title" itemprop="name headline">Notes of Spanish Nivel 1</h1>
         
 
         <div class="post-meta">
@@ -303,8 +304,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-02T23:04:01+01:00">
-                2017-07-02
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-28T20:19:14+01:00">
+                2018-03-28
               </time>
             
 
@@ -322,9 +323,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/07/02/keras-siamese-bug/#comments" itemprop="discussionUrl">
+                <a href="/2018/03/28/spanish-1/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/07/02/keras-siamese-bug/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/03/28/spanish-1/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -352,15 +353,35 @@
       
 
       
-        <p>In these days ,I am trying to integrate my re-id network. Then I found <a href="https://github.com/fchollet/keras/blob/master/examples/mnist_siamese_graph.py" target="_blank" rel="noopener">the official example of Siamese CNNs of the Keras based on the MNIST dataset</a>.</p>
-<p>Actually it is a very good example about how to integrate multiple networks. But there are 2 annoying bugs..</p>
-<h1 id="Wrong-contrastive-loss-function"><a href="#Wrong-contrastive-loss-function" class="headerlink" title="Wrong contrastive_loss function"></a>Wrong contrastive_loss function</h1><p>LinHungShi pointed this bug in <a href="https://github.com/fchollet/keras/issues/7119" target="_blank" rel="noopener">This issue</a>. Therefore, the correct contrastive loss function should be:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">contrastive_loss</span><span class="params">(y_true, y_pred)</span>:</span></span><br><span class="line">    <span class="string">'''Contrastive loss from Hadsell-et-al.'06</span></span><br><span class="line"><span class="string">    http://yann.lecun.com/exdb/publis/pdf/hadsell-chopra-lecun-06.pdf</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    margin = <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> K.mean((<span class="number">1</span> - y_true) * K.square(y_pred) +</span><br><span class="line">                  y_true * K.square(K.maximum(margin - y_pred, <span class="number">0</span>)))</span><br></pre></td></tr></table></figure></p>
-<h1 id="Wrong-accuracy-function"><a href="#Wrong-accuracy-function" class="headerlink" title="Wrong accuracy function"></a>Wrong accuracy function</h1><p>The original accuracy function in this example is:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compute_accuracy</span><span class="params">(predictions, labels)</span>:</span></span><br><span class="line">    <span class="string">'''Compute classification accuracy with a fixed threshold on distances.</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">return</span> labels[predictions.ravel() &lt; <span class="number">0.5</span>].mean()</span><br></pre></td></tr></table></figure></p>
-<p>Actually this code cannot calculate the accuracy. The output is the mean value of labels that with the false index. For example:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: <span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">In [<span class="number">2</span>]: <span class="function"><span class="keyword">def</span> <span class="title">compute_accuracy</span><span class="params">(predictions, labels)</span>:</span></span><br><span class="line">   ...:     <span class="keyword">return</span> labels[predictions.ravel() &lt; <span class="number">0.5</span>].mean()</span><br><span class="line">   ...: a=np.array([<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>])</span><br><span class="line">   ...: b=np.array([<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>])</span><br><span class="line">   ...: print(compute_accuracy(a,b))</span><br><span class="line">   ...:</span><br><span class="line"><span class="number">1.0</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">3</span>]: print(a.ravel()&lt;<span class="number">0.5</span>)</span><br><span class="line">[<span class="keyword">False</span>  <span class="keyword">True</span>  <span class="keyword">True</span> <span class="keyword">False</span>]</span><br><span class="line"></span><br><span class="line">In [<span class="number">5</span>]: <span class="keyword">print</span> (b[a.ravel()&lt;<span class="number">0.5</span>])</span><br><span class="line">[<span class="number">1</span> <span class="number">1</span>]</span><br></pre></td></tr></table></figure></p>
-<p> The accuracy should be 0 because 2 arrays (a and b) are totally different. It calculate the mean of b[a.ravel()&lt;0.5]. </p>
-<p> I saw <a href="https://github.com/fchollet/keras/commit/fefb70b217af9d9a5de780873db218fffaaf9544" target="_blank" rel="noopener">there is a fix</a> which gives a correct method of computing the accuracy, but they <a href="https://github.com/fchollet/keras/commit/9736056a60f08988d398f6592b28c97ffbe4e26f" target="_blank" rel="noopener">reverted this fix</a> and I don’t know why.</p>
-<p> Anyway, this sample code is a good example about how to set my own loss function, and how to integrate multiple networks into one model.</p>
-
+        <p><img src="https://i.imgur.com/SARPUGm.png" alt="Imgur"><br>I feel Spanish sounds like Japanese guy speak English xD.<br><a id="more"></a></p>
+<h1 id="Pronombres-Personales"><a href="#Pronombres-Personales" class="headerlink" title="Pronombres Personales"></a>Pronombres Personales</h1><ul>
+<li>Yo = I</li>
+<li>Tú = You</li>
+<li>Él / Ella / Usted = He/She/他</li>
+<li>Nosotros = We</li>
+<li>Vosotros = You</li>
+<li>Ellos / Ellas / Ustedes = 他们/她们/They </li>
+</ul>
+<h1 id="Masculino-y-Femelino"><a href="#Masculino-y-Femelino" class="headerlink" title="Masculino y Femelino"></a>Masculino y Femelino</h1><h2 id="Vocal"><a href="#Vocal" class="headerlink" title="Vocal"></a>Vocal</h2><p>Masculino: -o<br>Femelino: -a</p>
+<h2 id="Consonante"><a href="#Consonante" class="headerlink" title="Consonante"></a>Consonante</h2><p>Masculino: same<br>Femelino: +a</p>
+<h2 id="e-i-u"><a href="#e-i-u" class="headerlink" title="-e, -i, -u"></a>-e, -i, -u</h2><p>Masculino &amp; Femelino: same</p>
+<h1 id="Singular-y-Plural"><a href="#Singular-y-Plural" class="headerlink" title="Singular y Plural"></a>Singular y Plural</h1><h2 id="Vocal-1"><a href="#Vocal-1" class="headerlink" title="Vocal"></a>Vocal</h2><p>Singular: same<br>Plural: +s</p>
+<h2 id="Consonante-1"><a href="#Consonante-1" class="headerlink" title="Consonante"></a>Consonante</h2><p>Singular: same<br>Plural: +es</p>
+<h2 id="i"><a href="#i" class="headerlink" title="í"></a>í</h2><p>Singular: same<br>Plural: +es</p>
+<h2 id="z"><a href="#z" class="headerlink" title="z"></a>z</h2><p>Singular: same<br>Plural: z -&gt; ces</p>
+<h2 id="s"><a href="#s" class="headerlink" title="s"></a>s</h2><p>Singular &amp; Plural: same</p>
+<p># </p>
+<h1 id="Frase"><a href="#Frase" class="headerlink" title="Frase"></a>Frase</h1><h2 id="¿-Que-tal"><a href="#¿-Que-tal" class="headerlink" title="¿ Qué tal ?"></a>¿ Qué tal ?</h2><blockquote>
+<ul>
+<li>¿ Qué tal ?</li>
+<li>Muy bien / bien / Maso </li>
+</ul>
+</blockquote>
+<ul>
+<li>How are you? </li>
+<li>Awesome / Fine / Just so so / Not good.</li>
+</ul>
+<h2 id="Verbose"><a href="#Verbose" class="headerlink" title="Verbose"></a>Verbose</h2><h2 id="Verbose-regulares"><a href="#Verbose-regulares" class="headerlink" title="Verbose regulares"></a>Verbose regulares</h2><h2 id="Verbose-irregulares-ser-tiene"><a href="#Verbose-irregulares-ser-tiene" class="headerlink" title="Verbose irregulares (ser, tiene)"></a>Verbose irregulares (ser, tiene)</h2><h2 id="Verbose-llamarse-apellidarse"><a href="#Verbose-llamarse-apellidarse" class="headerlink" title="Verbose llamarse/apellidarse"></a>Verbose llamarse/apellidarse</h2>
       
     </div>
     
@@ -375,16 +396,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
-          
-            <a href="/tags/Python/" rel="tag"># Python</a>
-          
-            <a href="/tags/Keras/" rel="tag"># Keras</a>
-          
-        </div>
-      
 
       
       
@@ -394,8 +405,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/29/mat-picture/" rel="next" title="Use matplotlib to show the image">
-                <i class="fa fa-chevron-left"></i> Use matplotlib to show the image
+              <a href="/2018/01/05/python-datetime/" rel="next" title="Python Datetime Summary">
+                <i class="fa fa-chevron-left"></i> Python Datetime Summary
               </a>
             
           </div>
@@ -403,10 +414,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/05/k-london-notes/" rel="prev" title="Notes of Data Science London + Scikit-learn">
-                Notes of Data Science London + Scikit-learn <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -648,7 +655,7 @@ var ap = new APlayer({
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Wrong-contrastive-loss-function"><span class="nav-number">1.</span> <span class="nav-text">Wrong contrastive_loss function</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Wrong-accuracy-function"><span class="nav-number">2.</span> <span class="nav-text">Wrong accuracy function</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Pronombres-Personales"><span class="nav-number">1.</span> <span class="nav-text">Pronombres Personales</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Masculino-y-Femelino"><span class="nav-number">2.</span> <span class="nav-text">Masculino y Femelino</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vocal"><span class="nav-number">2.1.</span> <span class="nav-text">Vocal</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Consonante"><span class="nav-number">2.2.</span> <span class="nav-text">Consonante</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e-i-u"><span class="nav-number">2.3.</span> <span class="nav-text">-e, -i, -u</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Singular-y-Plural"><span class="nav-number">3.</span> <span class="nav-text">Singular y Plural</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vocal-1"><span class="nav-number">3.1.</span> <span class="nav-text">Vocal</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Consonante-1"><span class="nav-number">3.2.</span> <span class="nav-text">Consonante</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#i"><span class="nav-number">3.3.</span> <span class="nav-text">í</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#z"><span class="nav-number">3.4.</span> <span class="nav-text">z</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#s"><span class="nav-number">3.5.</span> <span class="nav-text">s</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Frase"><span class="nav-number">4.</span> <span class="nav-text">Frase</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#¿-Que-tal"><span class="nav-number">4.1.</span> <span class="nav-text">¿ Qué tal ?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Verbose"><span class="nav-number">4.2.</span> <span class="nav-text">Verbose</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Verbose-regulares"><span class="nav-number">4.3.</span> <span class="nav-text">Verbose regulares</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Verbose-irregulares-ser-tiene"><span class="nav-number">4.4.</span> <span class="nav-text">Verbose irregulares (ser, tiene)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Verbose-llamarse-apellidarse"><span class="nav-number">4.5.</span> <span class="nav-text">Verbose llamarse/apellidarse</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -797,9 +804,9 @@ Total visitors:<span id="busuanzi_value_site_pv"></span>
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://typewind.github.io/2017/07/02/keras-siamese-bug/';
-          this.page.identifier = '2017/07/02/keras-siamese-bug/';
-          this.page.title = 'Bugs in mnist_siamese_graph.py of Keras example';
+          this.page.url = 'https://typewind.github.io/2018/03/28/spanish-1/';
+          this.page.identifier = '2018/03/28/spanish-1/';
+          this.page.title = 'Notes of Spanish Nivel 1';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://typewind.disqus.com/embed.js';
