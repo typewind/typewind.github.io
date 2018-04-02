@@ -274,6 +274,423 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2017/06/08/transfer-learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Typewind">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mean Machine">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/08/transfer-learning/" itemprop="url">Brief Summary of Transfer learning</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-08T09:43:06+01:00">
+                2017-06-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/08/transfer-learning/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/06/08/transfer-learning/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Type-of-knowledge-transfer-2"><a href="#Type-of-knowledge-transfer-2" class="headerlink" title="Type of knowledge transfer[2]"></a>Type of knowledge transfer[2]</h1><h2 id="Instance-transfer"><a href="#Instance-transfer" class="headerlink" title="Instance transfer"></a>Instance transfer</h2><p>Transfer the instance is same as reuse the same instance. But the weight of it is different in the target dataset.<br>For example, an instance is appeared both in the source set and target set. Then we can calculate the similarity between the source label and target label of the same instance and give a new weight value of it in the target set.[1]</p>
+<h2 id="Feature-representation-transfer"><a href="#Feature-representation-transfer" class="headerlink" title="Feature representation transfer"></a>Feature representation transfer</h2><p>The general idea of feature represenation transfer is to reduce the difference between the source and target featurespace. It can be done by mapping(copying :P) the feature space from the source data to target data. </p>
+<h3 id="Feature-representation-in-DNN-CNN"><a href="#Feature-representation-in-DNN-CNN" class="headerlink" title="Feature representation in DNN/CNN"></a>Feature representation in DNN/CNN</h3><p>Because the DNN/CNN has a modular structure, we get the representation of features for each layers by pre-train, then use the high-level features to classify the target. So we can transfer/reuse the low level features from the source data set (eg. <a href="www.image-net.org">ImageNet</a>), then tune the hyper-parameters of our own network.</p>
+<h2 id="Parameter-transfer"><a href="#Parameter-transfer" class="headerlink" title="Parameter transfer"></a>Parameter transfer</h2><p>The key of the parameter transfer is to find the common priori knowledge between the source and target data. It can be applied on SVM, K-means, etc.</p>
+<h2 id="Relational-knowledge-transfer"><a href="#Relational-knowledge-transfer" class="headerlink" title="Relational knowledge transfer"></a>Relational knowledge transfer</h2><p>It used to transfer the relational knowledges between graphs or networks.</p>
+<h1 id="Basic-strategy-of-transfer-learning-in-CNN-3"><a href="#Basic-strategy-of-transfer-learning-in-CNN-3" class="headerlink" title="Basic strategy of transfer learning in CNN [3]"></a>Basic strategy of transfer learning in CNN [3]</h1><ol>
+<li>Copy the first layers to the corresponding layers<br>Because the low-level features in ther first layers (such as layer/color) are very similar among the different computer vision(CV) tasks. So we can reuse it directly. Sounds tricky but useful.</li>
+<li>Randomly initialise the remaining layers<br>Different CV tasks have different high level features. So just update the remaining network with new/random values.</li>
+<li>Tune the random genelized layers or all layers<br>The hell of tuning parameter is coming…</li>
+</ol>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ol>
+<li><a href="http://ftp.cse.ust.hk/~qyang/Docs/2009/ubi344-zheng.pdf" target="_blank" rel="noopener">Cross-Domain Activity Recognition, Vincent Wenchen Zheng, Derek Hao Hu, Qiang Yang</a></li>
+<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3768027/" target="_blank" rel="noopener">Transfer learning for activity recognition: a survey, Diane Cook, Kyle D. Feuz, and Narayanan C. Krishnan</a></li>
+<li><a href="https://arxiv.org/abs/1611.05244" target="_blank" rel="noopener">Deep Transfer Learning for Person Re-identification, M Geng, Y Wang, T Xiang, Y Tian</a></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2017/06/06/rank-n-matchingrate/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Typewind">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mean Machine">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/06/rank-n-matchingrate/" itemprop="url">Top rank matching rate</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-06T13:42:58+01:00">
+                2017-06-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/06/rank-n-matchingrate/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/06/06/rank-n-matchingrate/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Rank-r matching rate means the percentage of the p images with correct matches found in the top rank r ranks against the p gallery images.<br>Rank 1 matching rate is equal to the correct matching/recognition rate.</p>
+<p>Reference:<br><a href="http://www.springer.com/cn/book/9783662485576" target="_blank" rel="noopener">Computer Vision, CCF Chinese Conference, CCCV 2015, Xi’an, China, September 18-20, 2015, Proceedings, Part I, page 225. Editors: Zha, H., Chen, X., Wang, L., Miao, Q. (Eds.)</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2017/06/06/WH-MSCR-RHSP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Typewind">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mean Machine">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/06/WH-MSCR-RHSP/" itemprop="url">Definition of WH,MSCR and RHSP</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-06T12:24:47+01:00">
+                2017-06-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/06/WH-MSCR-RHSP/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/06/06/WH-MSCR-RHSP/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><img src="http://i.imgur.com/czSxXEz.png" alt="Imgur"><br>Figure 1: WH, MSCR and RHSP on the single shot images. </p>
+<p>In re-identification, the color is the most important feature. Here are some most frequently used color feature accumulation strategies. All of them can be applied in different color space (RGB,HSV,etc.).<br>Briefly speaking:</p>
+<ul>
+<li>WH shows the importance among different colors.</li>
+<li>MSCR shows the color blocks</li>
+<li>RHSP shows the texture
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/06/WH-MSCR-RHSP/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2017/06/05/re-id-intro/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1204,424 +1621,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2017/03/27/instance-output/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Typewind">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mean Machine">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/03/27/instance-output/" itemprop="url">Instance Output</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-27T18:43:01+01:00">
-                2017-03-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/03/27/instance-output/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/03/27/instance-output/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>#Trapped into a small range with several vectors<br><img src="http://i.imgur.com/h6yZM9n.png" alt="figure1"><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/27/instance-output/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2017/03/27/instance-centroid/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Typewind">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mean Machine">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/03/27/instance-centroid/" itemprop="url">Instance Centroid Cannot Converge?</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-27T02:20:06+01:00">
-                2017-03-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/03/27/instance-centroid/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/03/27/instance-centroid/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Define the distortion function as:<br>$$ J(c,u)=\sum<em>{i=1}^{m}||x^{(i)}-u</em>{c^(i)}||^{2} $$</p>
-<p>Function J is the square sum of the distance between centroid and corresponding vectors. The aim of K-means algorithm is to minimize the J. It’s easy to find that there are 2 methods to minimize the J:</p>
-<ol>
-<li>Fix the centroid and arrange the vectors in the cluster.</li>
-<li>Fix the vectors and arrange the centroid.</li>
-</ol>
-<p>When J is near to 0, which means the sum of the distance between the centroid and vectors is decreasing. Thus, we can set a tolerance variable to judge the similarity of 2 centroids. When the distance between 2 mean centroids is less or equal to the tolerance, it means the clustering consequence is converged. Depend on the <code>sklearn</code> library, we set the tolerence = 0.0001</p>
-<p>Although the function J is not a convex function, which means we may converge to a local optimal solution. But J shows that the ordinary K-means algorithm can converge to a minimal value.</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/27/instance-centroid/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2017/03/21/norm/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Typewind">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mean Machine">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/03/21/norm/" itemprop="url">2 Methods of Calulating the Distance between 2 Vectors</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-21T22:35:53+00:00">
-                2017-03-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/03/21/norm/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/03/21/norm/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>These days I’m coding with the K-means clustring. In this algorithm, we often need to calculate the distance between 2 vectors. The expression of disctace between vector x and y is:<br>$$ d=\sqrt{\sum{(x<em>{i}-y</em>{i})^{2}}} $$</p>
-<p>Depend on this expression, we can write our code as:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">x=np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</span><br><span class="line">y=np.array([<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>])</span><br><span class="line">d = np.sqrt(((x-y)**<span class="number">2</span>).sum())</span><br><span class="line">print(d)</span><br></pre></td></tr></table></figure></p>
-<p>This code works well, but we can also use the <code>numpy.linalg.norm</code> to calculate the distance:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">x=np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</span><br><span class="line">y=np.array([<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>])</span><br><span class="line">d = np.linalg.norm(x-y)</span><br><span class="line">print(d)</span><br></pre></td></tr></table></figure>
-<p>For those guys who are struggling with the math, maybe the norm is a better choice ;)</p>
-<p>Actually <code>numpy.linalg.norm</code> is very powerful. It can calculate different kind of normalisations by giving different value to the <code>ord</code> parameter. <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.norm.html" target="_blank" rel="noopener">Here is the doc of norm</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1667,7 +1671,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-count">41</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
