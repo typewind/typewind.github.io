@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Python,Pandas,Data Analysis," />
+  <meta name="keywords" content="Python,Data Analysis,Pandas," />
 
 
 
@@ -95,7 +95,7 @@
 
 
 <meta name="description" content="Datetime format is very frequently used in real world. This post summarized basic usage of datetime in python and pandas and introduced the dateutil library wit">
-<meta name="keywords" content="Python,Pandas,Data Analysis">
+<meta name="keywords" content="Python,Data Analysis,Pandas">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python Datetime Summary">
 <meta property="og:url" content="https://typewind.github.io/2018/01/05/python-datetime/index.html">
@@ -103,7 +103,7 @@
 <meta property="og:description" content="Datetime format is very frequently used in real world. This post summarized basic usage of datetime in python and pandas and introduced the dateutil library with examples.">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.imgur.com/96bnqVr.png">
-<meta property="og:updated_time" content="2018-01-08T01:28:00.851Z">
+<meta property="og:updated_time" content="2018-04-15T10:22:27.625Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python Datetime Summary">
 <meta name="twitter:description" content="Datetime format is very frequently used in real world. This post summarized basic usage of datetime in python and pandas and introduced the dateutil library with examples.">
@@ -370,8 +370,13 @@
 <h2 id="datetime-datetime"><a href="#datetime-datetime" class="headerlink" title="datetime.datetime"></a>datetime.datetime</h2><p><code>datetime.datetime</code> contains the following attributes:<br>| Attribute | Directive | Class |<br>|———–|———–|——-|<br>|     *Year    |    %Y       |    datetime.date   |<br>|      Month     |    %m       |    datetime.date   |<br>|      Day     |     %d      |   datetime.date    |<br>|     Hour      |    %H       |    datetime.time   |<br>|      Minute     |    %M       |    datetime.time  |<br>|      Second     |     %S      |   datetime.time    |<br>|      Microsecond     |    %f       |    datetime.time  |</p>
 <p>*: <code>%Y</code> is the year with the century (e.g: 1998, 1999), and <code>%y</code> is the year withour century (e.g: 98,99)</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h1 id="Datetime-in-Pandas"><a href="#Datetime-in-Pandas" class="headerlink" title="Datetime in Pandas"></a>Datetime in Pandas</h1><h2 id="parse-time"><a href="#parse-time" class="headerlink" title="parse_time"></a>parse_time</h2><h2 id="pd-to-datetime"><a href="#pd-to-datetime" class="headerlink" title="pd.to_datetime"></a>pd.to_datetime</h2><h2 id="pd-Grouper"><a href="#pd-Grouper" class="headerlink" title="pd.Grouper"></a>pd.Grouper</h2><h1 id="Dateutil-Better-Way-to-Calculate-Timedelta"><a href="#Dateutil-Better-Way-to-Calculate-Timedelta" class="headerlink" title="Dateutil - Better Way to Calculate Timedelta"></a>Dateutil - Better Way to Calculate Timedelta</h1><p><a href="https://dateutil.readthedocs.io/en/stable/" target="_blank" rel="noopener">Dateutil</a> is a useful extension library of python <code>datetime</code>. Sometimes, we need to calculate the date 3 month from the current date, or we need to calculate how many months between 2 dates. These problem is annoying because the days in each month are different. The dateutil is perfect for these applications.</p>
-<h2 id="Dateutil-relativedelta"><a href="#Dateutil-relativedelta" class="headerlink" title="Dateutil.relativedelta"></a>Dateutil.relativedelta</h2><h2 id="Dateutil-rrule"><a href="#Dateutil-rrule" class="headerlink" title="Dateutil.rrule"></a>Dateutil.rrule</h2>
+<h1 id="Datetime-in-Pandas"><a href="#Datetime-in-Pandas" class="headerlink" title="Datetime in Pandas"></a>Datetime in Pandas</h1><h2 id="parse-time"><a href="#parse-time" class="headerlink" title="parse_time"></a>parse_time</h2><p><code>parse_time</code> is an option in <code>pandas.read_csv()</code>. If we set <code>pd.read_csv(parse_time=[columns_name])</code>, pandas will parse the chosen columns to <code>datetime.datetime</code></p>
+<p>Parse the time when read csv is quicker than <code>pd.to_datetime</code>. And you can a list of columns, which is very easy to use.</p>
+<h2 id="pd-to-datetime"><a href="#pd-to-datetime" class="headerlink" title="pd.to_datetime"></a>pd.to_datetime</h2><p>It’s the usual way to convert a series of string to <code>datetime.datetime</code>. User can set the time format by a string of datetime attribute.<br><code>pd.to_datetime</code> is slow. Be careful when you have a huge file. </p>
+<h2 id="pd-Grouper"><a href="#pd-Grouper" class="headerlink" title="pd.Grouper"></a>pd.Grouper</h2><p>Grouper is a very powerful tool to group the dataframe by any period of time, like 15 minutes, 1 hour or so on. It’s very useful when you need to analyse the data in small time scale.</p>
+<h1 id="Dateutil-Better-Way-to-Calculate-Timedelta"><a href="#Dateutil-Better-Way-to-Calculate-Timedelta" class="headerlink" title="Dateutil - Better Way to Calculate Timedelta"></a>Dateutil - Better Way to Calculate Timedelta</h1><p><a href="https://dateutil.readthedocs.io/en/stable/" target="_blank" rel="noopener">Dateutil</a> is a useful extension library of python <code>datetime</code>. Sometimes, we need to calculate the date 3 month from the current date, or we need to calculate how many months between 2 dates. These problem is annoying because the days in each month are different. The dateutil is perfect for these applications.</p>
+<h2 id="Dateutil-relativedelta"><a href="#Dateutil-relativedelta" class="headerlink" title="Dateutil.relativedelta"></a>Dateutil.relativedelta</h2><p>When we need to calculate the relative date from one day (e.g. 3 day after today), <a href="">relativedelta</a> is the best choice.</p>
+<h2 id="Dateutil-rrule"><a href="#Dateutil-rrule" class="headerlink" title="Dateutil.rrule"></a>Dateutil.rrule</h2>
       
     </div>
     
@@ -390,9 +395,9 @@
           
             <a href="/tags/Python/" rel="tag"># Python</a>
           
-            <a href="/tags/Pandas/" rel="tag"># Pandas</a>
-          
             <a href="/tags/Data-Analysis/" rel="tag"># Data Analysis</a>
+          
+            <a href="/tags/Pandas/" rel="tag"># Pandas</a>
           
         </div>
       
