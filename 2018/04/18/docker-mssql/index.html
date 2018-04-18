@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="python" />
+  <meta name="keywords" content="Python,Docker,MSSQL," />
 
 
 
@@ -94,16 +94,18 @@
 
 
 
-<meta name="description" content="Computer Science, Football and ACG">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mean Machine">
-<meta property="og:url" content="https://typewind.github.io/archives/index.html">
+<meta name="description" content="This short post shares the experience of how to connect to a Microsoft SQL Server database inside a docker image. To be honest it’s not difficult but things alw">
+<meta name="keywords" content="Python,Docker,MSSQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to connect MSSQL in Docker by Python">
+<meta property="og:url" content="https://typewind.github.io/2018/04/18/docker-mssql/index.html">
 <meta property="og:site_name" content="Mean Machine">
-<meta property="og:description" content="Computer Science, Football and ACG">
+<meta property="og:description" content="This short post shares the experience of how to connect to a Microsoft SQL Server database inside a docker image. To be honest it’s not difficult but things always become super fucking annoying when d">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-04-18T19:09:25.966Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mean Machine">
-<meta name="twitter:description" content="Computer Science, Football and ACG">
+<meta name="twitter:title" content="How to connect MSSQL in Docker by Python">
+<meta name="twitter:description" content="This short post shares the experience of how to connect to a Microsoft SQL Server database inside a docker image. To be honest it’s not difficult but things always become super fucking annoying when d">
 
 
 
@@ -132,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="https://typewind.github.io/archives/"/>
+  <link rel="canonical" href="https://typewind.github.io/2018/04/18/docker-mssql/"/>
 
 
 
 
 
-  <title>Archive | Mean Machine</title>
+  <title>How to connect MSSQL in Docker by Python | Mean Machine</title>
   
 
 
@@ -163,7 +165,7 @@
     
   
 
-  <div class="container sidebar-position-right  page-archive  ">
+  <div class="container sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -278,410 +280,176 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      <span class="archive-page-counter">
-        
-        
-         
-        
-        OK! 46 posts in total. Keep on posting.
-      </span>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2018/04/18/docker-mssql/">
 
-      
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Typewind">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mean Machine">
+    </span>
+
+    
+      <header class="post-header">
 
         
         
+          <h1 class="post-title" itemprop="name headline">How to connect MSSQL in Docker by Python</h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-18T19:46:50+01:00">
+                2018-04-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-          <div class="collection-title">
-            <h2 class="archive-year motion-element" id="archive-year-2018">2018</h2>
-          </div>
-        
-        
 
-        
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/18/docker-mssql/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/04/18/docker-mssql/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/18/docker-mssql/" itemprop="url">
-              
-                <span itemprop="name">How to connect MSSQL in Docker by Python</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-18T19:46:50+01:00"
-              content="2018-04-18" >
-          04-18
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/17/css-tools/" itemprop="url">
-              
-                <span itemprop="name">3 Useful Online CSS Tools</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-17T01:03:09+01:00"
-              content="2018-04-17" >
-          04-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/06/job-searching-Tier2-priority/" itemprop="url">
-              
-                <span itemprop="name">Tier 2 申请经验：Priority 其实很好申</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-06T00:53:17+01:00"
-              content="2018-04-06" >
-          04-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/05/job-searching-rubbishCom/" itemprop="url">
-              
-                <span itemprop="name">英国求职的浅薄经验：远离垃圾公司</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-05T23:39:09+01:00"
-              content="2018-04-05" >
-          04-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>This short post shares the experience of how to connect to a Microsoft SQL Server database inside a docker image. To be honest it’s not difficult but things always become super fucking annoying when docker and Microsoft come together.<br>As a bonus, here is a short conversation when we try to get over it: </p>
+<blockquote>
+<p>“About 5% of the team have wasted half a day on it at some point”<br>“OK…let me try 1 hour and see I’m the 5% or 95% “<br>“lol the other 95% didnt try”</p>
+</blockquote>
+<a id="more"></a>
+<ol>
+<li>Run docker image first</li>
+<li>Run <code>docker exec -it &lt;docker container name&gt; bash</code> and find <code>libsqlvdi.so</code>. It should be at <code>/opt/mssql/lib/</code> . The first line of this file indicated the driver of this database.</li>
+<li>We need <code>pyodbc</code> to build the connection between python to MSSQL. If you didn’t have it, simply run <code>sudo pip install pyodbc</code> in the terminal. </li>
+<li>Finally here is the sample code:<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pyodbc</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">con = pyodbc.connect(<span class="string">'DRIVER=;SERVER=&#123;&#125;;PORT:&#123;&#125;;DATABASE=&#123;&#125;;UID=&#123;&#125;;PWD=&#123;&#125;'</span>.format(self.db_config[<span class="string">'driver'</span>],</span><br><span class="line">self.db_config[<span class="string">'server'</span>],</span><br><span class="line">self.db_config[<span class="string">'port'</span>],</span><br><span class="line">self.db_config[<span class="string">'database'</span>],</span><br><span class="line">self.db_config[<span class="string">'uid'</span>],</span><br><span class="line">self.db_config[<span class="string">'pwd'</span>]))</span><br><span class="line">con.execute(<span class="string">"USE &lt;your_target_database_name&gt;"</span>)</span><br><span class="line"></span><br><span class="line">df=pd.read_sql(<span class="string">'SELECT * FROM [&lt;your_target_table_name&gt;]'</span>, self.con)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>The <code>[]</code> in the SQL query is try to read table name with spaces (some people did this, lol). And <code>db_config</code> looks like:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">driver: <span class="string">'ODBC Driver 17 for SQL Server'</span> <span class="comment"># change to what you found in libsqlvdi.so</span></span><br><span class="line">port: <span class="number">1433</span> <span class="comment"># default MSSQL port. </span></span><br><span class="line">server: localhost <span class="comment"># default path of MSSQL server</span></span><br><span class="line">database: DATABASE <span class="comment"># change to the name of target database</span></span><br><span class="line">uid: sa <span class="comment"># default user name of MSSQL. Change if necessary</span></span><br><span class="line">pwd: KlinsmannIsFootballGenius <span class="comment"># change to your password</span></span><br></pre></td></tr></table></figure>
+<p>And if you want to <a href="https://stackoverflow.com/questions/175415/how-do-i-get-list-of-all-tables-in-a-database-using-tsql" target="_blank" rel="noopener">view all tables name</a>, simply run: <code>SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE=&#39;BASE TABLE&#39;</code></p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/03/job-searching-taboos/" itemprop="url">
-              
-                <span itemprop="name">英国求职的浅薄经验：注意回避垃圾工作</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-03T22:42:14+01:00"
-              content="2018-04-03" >
-          04-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/01/job-searching-others/" itemprop="url">
-              
-                <span itemprop="name">外一篇——“找不到工作但还是超想留欧洲啊怎么办？”</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-01T22:08:16+01:00"
-              content="2018-04-01" >
-          04-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/29/job-searching-cloth/" itemprop="url">
-              
-                <span itemprop="name">英国求职的浅薄经验：着装一定要注意</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-29T22:05:14+01:00"
-              content="2018-03-29" >
-          03-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/28/job-searching-exp/" itemprop="url">
-              
-                <span itemprop="name">英国求职的浅薄经验：投简历及面试策略</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-28T22:03:10+01:00"
-              content="2018-03-28" >
-          03-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/25/job-searching/" itemprop="url">
-              
-                <span itemprop="name">英国求职的浅薄经验：如何最大化利用各种资源</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-25T23:42:07+01:00"
-              content="2018-03-25" >
-          03-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/18/spanish-1/" itemprop="url">
-              
-                <span itemprop="name">Notes of Spanish Nivel 1</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-18T20:19:14+00:00"
-              content="2018-03-18" >
-          03-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/Docker/" rel="tag"># Docker</a>
+          
+            <a href="/tags/MSSQL/" rel="tag"># MSSQL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/17/css-tools/" rel="next" title="3 Useful Online CSS Tools">
+                <i class="fa fa-chevron-left"></i> 3 Useful Online CSS Tools
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/5/">5</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -689,6 +457,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -999,11 +778,9 @@ Total visitors:<span id="busuanzi_value_site_pv"></span>
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
 
 
   
@@ -1022,6 +799,18 @@ Total visitors:<span id="busuanzi_value_site_pv"></span>
       <script id="dsq-count-scr" src="https://typewind.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://typewind.github.io/2018/04/18/docker-mssql/';
+          this.page.identifier = '2018/04/18/docker-mssql/';
+          this.page.title = 'How to connect MSSQL in Docker by Python';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://typewind.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
