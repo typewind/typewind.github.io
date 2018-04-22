@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="Mean Machine">
 <meta property="og:description" content="This short post shares the experience of how to connect to a Microsoft SQL Server database inside a docker image. To be honest it’s not difficult but things always become super fucking annoying when d">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-04-19T22:54:35.277Z">
+<meta property="og:updated_time" content="2018-04-22T12:20:11.624Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How to connect MSSQL in Docker by Python">
 <meta name="twitter:description" content="This short post shares the experience of how to connect to a Microsoft SQL Server database inside a docker image. To be honest it’s not difficult but things always become super fucking annoying when d">
@@ -387,6 +387,7 @@
 <p>“About 5% of the team have wasted half a day on it at some point”<br>“OK…let me try 1 hour and see I’m the 5% or 95% “<br>“lol the other 95% didnt try”</p>
 </blockquote>
 <a id="more"></a>
+<p>0.Install <a href="https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-2017" target="_blank" rel="noopener">Microsoft ODBC Driver</a></p>
 <ol>
 <li>Run docker image first</li>
 <li>Run <code>docker exec -it &lt;docker container name&gt; bash</code> and find <code>libsqlvdi.so</code>. It should be at <code>/opt/mssql/lib/</code> . The first line of this file indicated the driver of this database.</li>
