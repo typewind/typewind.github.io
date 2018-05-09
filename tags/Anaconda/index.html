@@ -456,7 +456,7 @@ var ap = new APlayer({
     showlrc: 0,                                                        // Optional, show lrc, can be 0, 1, 2, see: ###With lrc
     mutex: true,                                                       // Optional, pause other players when this player playing
     theme: '#b7daff',                                                  // Optional, theme color, default: #b7daff
-    mode: 'random',                                                    // Optional, play mode, can be `random` `single` `circulation`(loop) `order`(no loop), default: `circulation`
+    mode: 'circulation',                                                    // Optional, play mode, can be `random` `single` `circulation`(loop) `order`(no loop), default: `circulation`
     preload: 'metadata',                                               // Optional, the way to load music, can be 'none' 'metadata' 'auto', default: 'auto'
     listmaxheight: '513px',                                             // Optional, max height of play list
     music: [  
@@ -517,7 +517,8 @@ var ap = new APlayer({
 	    	title: 'song of a tiny flower',
 	    	author: '梶浦由記',
 	    	url: 'https://s3-eu-west-1.amazonaws.com/typewind-first-bucket/%E6%A2%B6%E6%B5%A6%E7%94%B1%E8%A8%98+-+song+of+a+tiny+flower.mp3',
-	    	pic: 'https://imgur.com/ttEEZtb.jpg'
+	    	pic: 'https://imgur.com/ttEEZtb.jpg',
+	    	theme: '#8902ff'
 	    },
 
 
