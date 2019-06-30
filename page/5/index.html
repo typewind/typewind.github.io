@@ -303,6 +303,170 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2017/06/19/TF-video-detection-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shuyao Chen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Typewind">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/19/TF-video-detection-1/" itemprop="url">Play with TF-Object Detection - 1. Installation</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-19T12:03:12+01:00">
+                2017-06-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/19/TF-video-detection-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/06/19/TF-video-detection-1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><h2 id="Fink-for-Mac-OS"><a href="#Fink-for-Mac-OS" class="headerlink" title="Fink (for Mac OS)"></a>Fink (for Mac OS)</h2><p>Basic installation tutorial of TF-Object Detection used <code>apt-get</code> to install packages. I tried use <code>brew</code> to replace it but some packages are missed. Fortunately, we can use <code>apt-get</code> after installing the <a href="http://www.finkproject.org/download/srcdist.php?phpLang=zh" target="_blank" rel="noopener">Fink</a>.    </p>
+<p>Fink provided a <a href="https://github.com/fink/scripts/blob/master/srcinstaller/Install%20Fink.tool" target="_blank" rel="noopener">helper script</a> to install all things automatically. The Installation cost nearly half an hour on my computer, here is the whole process:</p>
+<ol>
+<li>Save the script on the Desktop (or whatever you like) as “Fink.sh”</li>
+<li>Run <code>~/Desktop/Fink.sh</code></li>
+<li>If you didn’t install the full Xcode or Xquartz, the script will ask you whether you’d like to install them. After installing the Xcode and Xquartz, we should run <code>~/Desktop/Fink.sh</code> again to continue the process of Fink.</li>
+<li>Waiting for the installation until the Fink ask you several questions like<blockquote>
+<ul>
+<li>I’ll ask you some questions and update the configuration file in<br>‘/sw/etc/fink.conf’.</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>In what additional directory should Fink look for downloaded tarballs? </li>
+<li>Which directory should Fink use to build packages? (If you don’t know what this means, it is safe to leave it at its default.) </li>
+<li>….</li>
+</ul>
+<p>Here just need to press <strong>“Enter”</strong> again and again to leave them at its default. Then have a coffee and wait for a few minutes :)</p>
+<p>After the installation is done, remember to restart the terminal and run <code>fink update-all</code> to active the fink. Now apt-get is available on Mac OS :D</p>
+<p><img src="http://i.imgur.com/WoqT5vP.png" alt="Imgur"></p>
+<h2 id="Install-Object-Detection-model"><a href="#Install-Object-Detection-model" class="headerlink" title="Install Object Detection model"></a>Install Object Detection model</h2><p>The basic version of Tensorflow didn’t contain the models. So we should run<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> From /tensorflow</span><br><span class="line">git clone https://github.com/tensorflow/models</span><br></pre></td></tr></table></figure></p>
+<p>Then compile the photoruf libraries by running:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> From tensorflow/models</span><br><span class="line">protoc object_detection/protos/*.proto --python_out=.</span><br></pre></td></tr></table></figure></p>
+<p>If photoruf was not installed, then run<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew photoruf</span><br></pre></td></tr></table></figure></p>
+<p>to install it first.</p>
+<p>Then set the pre-trained model path by:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> From tensorflow/models/</span><br><span class="line">export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim</span><br></pre></td></tr></table></figure></p>
+<p>From this line, we can find it is obvious that <strong>object detection use the TF-slim to extract the features.</strong></p>
+<p>To test whether the model has been installed successfully or not, run:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python object_detection/builders/model_builder_test.py</span><br></pre></td></tr></table></figure></p>
+<p>under your environment. If you use the VirtualEnv, remember run this first:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/tensorflow/bin/active</span><br></pre></td></tr></table></figure></p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h1><ol>
+<li><a href="https://github.com/tensorflow/models/blob/master/object_detection/g3doc/installation.md" target="_blank" rel="noopener">TF-Object Detection Model</a></li>
+<li><a href="http://www.finkproject.org/download/srcdist.php?phpLang=zh" target="_blank" rel="noopener">Fink</a></li>
+<li><a href="http://stupidbeauty.com/Blog/article/873/Fink%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%EF%BC%9AFink%200.35.1%E5%AE%89%E8%A3%85,Fink%200.35.1%20Installation" target="_blank" rel="noopener">Document of Fink</a></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2017/06/15/tf-ones-like-tricks/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1521,142 +1685,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://typewind.github.io/2017/04/05/rsbmc-notes/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Shuyao Chen">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Typewind">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/04/05/rsbmc-notes/" itemprop="url">Notes of "Recommender Systems - Beyond Matrix Completion"</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-05T14:00:30+01:00">
-                2017-04-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/04/05/rsbmc-notes/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/04/05/rsbmc-notes/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><iframe width="560" height="315" src="https://www.youtube.com/embed/bwwwEfORCtw" frameborder="0" allowfullscreen></iframe><br>Our video presentation of Recommender Systems - Beyond Matrix Completion</p>
-<p>Video: Shuyao Chen<br>Audio: Aidon Blong<br>Script: Aidon Blong, Shuyao Chen, Felix Udanyi<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/05/rsbmc-notes/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1707,7 +1735,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">63</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1720,7 +1748,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">80</span>
+                <span class="site-state-item-count">81</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
