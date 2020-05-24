@@ -7,7 +7,7 @@
 
 <html class="theme-next mist use-motion" lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Machine Learning,Object Detection,Tensorflow," />
+  <meta name="keywords" content="Machine Learning,Tensorflow,Object Detection," />
 
 
 
@@ -95,7 +95,7 @@
 
 
 <meta name="description" content="InstallationFink (for Mac OS)Basic installation tutorial of TF-Object Detection used apt-get to install packages. I tried use brew to replace it but some packag">
-<meta name="keywords" content="Machine Learning,Object Detection,Tensorflow">
+<meta name="keywords" content="Machine Learning,Tensorflow,Object Detection">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Play with TF-Object Detection - 1. Installation">
 <meta property="og:url" content="https://typewind.github.io/2017/06/19/TF-video-detection-1/index.html">
@@ -155,7 +155,7 @@
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
   ga('create', 'UA-117859399-1', 'auto');
   ga('send', 'pageview');
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -176,7 +176,7 @@
     
   
 
-  <div class="container sidebar-position-right page-post-detail ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -436,9 +436,9 @@
           
             <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
           
-            <a href="/tags/Object-Detection/" rel="tag"># Object Detection</a>
-          
             <a href="/tags/Tensorflow/" rel="tag"># Tensorflow</a>
+          
+            <a href="/tags/Object-Detection/" rel="tag"># Object Detection</a>
           
         </div>
       
@@ -869,7 +869,24 @@ Total visitors:<span id="busuanzi_value_site_pv"></span>
         s.src = 'https://typewind.disqus.com/embed.js';
         s.setAttribute('data-timestamp', '' + +new Date());
         (d.head || d.body).appendChild(s);
-      </script>
+      </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
     
 
   

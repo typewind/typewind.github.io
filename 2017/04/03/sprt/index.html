@@ -7,7 +7,7 @@
 
 <html class="theme-next mist use-motion" lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Statistics,Deep Learning," />
+  <meta name="keywords" content="Deep Learning,Statistics," />
 
 
 
@@ -95,7 +95,7 @@
 
 
 <meta name="description" content="Recently I’m reading some papers related to the sequential probability ratio test(SPRT). Here is some notes about the concepts from statistical hypothesis testi">
-<meta name="keywords" content="Statistics,Deep Learning">
+<meta name="keywords" content="Deep Learning,Statistics">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Notes of Statistical Hypothesis Testing">
 <meta property="og:url" content="https://typewind.github.io/2017/04/03/sprt/index.html">
@@ -153,7 +153,7 @@
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
   ga('create', 'UA-117859399-1', 'auto');
   ga('send', 'pageview');
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -174,7 +174,7 @@
     
   
 
-  <div class="container sidebar-position-right page-post-detail ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -449,9 +449,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Statistics/" rel="tag"># Statistics</a>
-          
             <a href="/tags/Deep-Learning/" rel="tag"># Deep Learning</a>
+          
+            <a href="/tags/Statistics/" rel="tag"># Statistics</a>
           
         </div>
       
@@ -882,7 +882,24 @@ Total visitors:<span id="busuanzi_value_site_pv"></span>
         s.src = 'https://typewind.disqus.com/embed.js';
         s.setAttribute('data-timestamp', '' + +new Date());
         (d.head || d.body).appendChild(s);
-      </script>
+      </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
     
 
   
